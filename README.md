@@ -41,7 +41,7 @@ The storefront currently includes these products:
 
 ## Files
 
-- `main.html` - Main storefront page (layout, styling, interactions)
+- `index.html` - Main storefront page (layout, styling, interactions)
 - `products.json` - Product metadata and image mappings
 - `privacy-policy.html` - Privacy policy page
 - `terms-and-conditions.html` - Terms page
@@ -55,4 +55,3 @@ When a customer proceeds to checkout:
 2. Quotation PDF is generated and downloaded
 3. A payment reference number is included (invoice/quotation number)
 4. WhatsApp flow is triggered for order follow-up
-
