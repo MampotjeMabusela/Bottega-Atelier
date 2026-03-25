@@ -388,6 +388,7 @@
     .product-gallery-track img {
       min-width: 100%;
       scroll-snap-align: start;
+      cursor: zoom-in;
     }
     .gallery-nav {
       position: absolute;
@@ -1072,6 +1073,139 @@
     body.dark-theme .testimonial-text {
       color: #b7ae9f;
     }
+
+    /* Product image lightbox */
+    body.lightbox-open {
+      overflow: hidden;
+    }
+    .lightbox-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 340;
+      background: rgba(0, 0, 0, 0.7);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .lightbox-overlay.open {
+      display: flex;
+    }
+    .lightbox-modal {
+      width: min(980px, 100%);
+      background: color-mix(in srgb, var(--surface) 92%, transparent);
+      border: 1px solid rgba(214, 204, 188, 0.6);
+      border-radius: 18px;
+      box-shadow: 0 30px 80px -40px rgba(0, 0, 0, 0.85);
+      position: relative;
+      overflow: hidden;
+    }
+    .lightbox-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.8rem;
+      padding: 0.75rem 0.85rem;
+      border-bottom: 1px solid rgba(214, 204, 188, 0.45);
+      background: color-mix(in srgb, var(--surface) 90%, transparent);
+    }
+    .lightbox-title {
+      font-weight: 800;
+      font-size: 0.92rem;
+      color: var(--text);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .lightbox-close {
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      border: 1px solid rgba(214, 204, 188, 0.65);
+      background: var(--surface);
+      cursor: pointer;
+      font-size: 1.25rem;
+      line-height: 1;
+      color: var(--text);
+    }
+    .lightbox-body {
+      display: grid;
+      grid-template-columns: 54px 1fr 54px;
+      align-items: center;
+      gap: 0.2rem;
+      padding: 0.6rem;
+    }
+    .lightbox-nav {
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      border: 1px solid rgba(214, 204, 188, 0.6);
+      background: rgba(17, 13, 10, 0.72);
+      color: #fff;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      justify-self: center;
+    }
+    .lightbox-stage {
+      background: rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(214, 204, 188, 0.5);
+      border-radius: 14px;
+      overflow: hidden;
+      aspect-ratio: 1 / 1;
+      display: grid;
+      place-items: center;
+      position: relative;
+    }
+    .lightbox-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transform: scale(var(--zoom, 1));
+      transform-origin: center;
+      transition: transform 0.12s ease;
+      cursor: zoom-in;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+    .lightbox-img.zoomed {
+      cursor: zoom-out;
+    }
+    .lightbox-tools {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      padding: 0.7rem 0.85rem 0.95rem;
+      border-top: 1px solid rgba(214, 204, 188, 0.45);
+      background: color-mix(in srgb, var(--surface) 90%, transparent);
+    }
+    .lightbox-zoom-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      border: 1px solid rgba(214, 204, 188, 0.7);
+      background: var(--surface);
+      cursor: pointer;
+      font-weight: 900;
+      color: var(--text);
+    }
+    .lightbox-zoom-label {
+      font-weight: 800;
+      font-size: 0.85rem;
+      color: var(--muted);
+      min-width: 64px;
+      text-align: center;
+    }
+    @media (max-width: 560px) {
+      .lightbox-body {
+        grid-template-columns: 48px 1fr 48px;
+      }
+      .lightbox-nav {
+        width: 40px;
+        height: 40px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1205,6 +1339,32 @@
   <button class="checkout-btn" id="checkoutBtn" type="button">Proceed to Checkout →</button>
 </aside>
 <div id="toastMsg" class="toast-msg"></div>
+
+<!-- Product Image Lightbox (product photos only) -->
+<div class="lightbox-overlay" id="lightboxOverlay" aria-hidden="true">
+  <div class="lightbox-modal" role="dialog" aria-modal="true" aria-label="Product image preview">
+    <div class="lightbox-header">
+      <div class="lightbox-title" id="lightboxTitle">Product image</div>
+      <button class="lightbox-close" id="lightboxCloseBtn" type="button" aria-label="Close image preview">&times;</button>
+    </div>
+    <div class="lightbox-body">
+      <button class="lightbox-nav" id="lightboxPrevBtn" type="button" aria-label="Previous image">
+        <i class="fas fa-chevron-left" aria-hidden="true"></i>
+      </button>
+      <div class="lightbox-stage" id="lightboxStage">
+        <img class="lightbox-img" id="lightboxImg" src="" alt="Expanded product image">
+      </div>
+      <button class="lightbox-nav" id="lightboxNextBtn" type="button" aria-label="Next image">
+        <i class="fas fa-chevron-right" aria-hidden="true"></i>
+      </button>
+    </div>
+    <div class="lightbox-tools">
+      <button class="lightbox-zoom-btn" id="lightboxZoomOutBtn" type="button" aria-label="Zoom out">−</button>
+      <div class="lightbox-zoom-label" id="lightboxZoomLabel">100%</div>
+      <button class="lightbox-zoom-btn" id="lightboxZoomInBtn" type="button" aria-label="Zoom in">+</button>
+    </div>
+  </div>
+</div>
 
 <script>
   // jsPDF for quotation PDF generation
@@ -1704,12 +1864,12 @@
           <div class="product-gallery">
             <button class="gallery-nav prev" type="button" data-dir="-1" aria-label="Previous product image"><i class="fas fa-chevron-left"></i></button>
             <div class="product-gallery-track">
-              ${galleryImages.map((img, index) => `<img src="${img}" alt="${product.name} view ${index + 1}" loading="lazy">`).join('')}
+              ${galleryImages.map((img, index) => `<img src="${img}" alt="${product.name} view ${index + 1}" loading="lazy" data-product-id="${product.id}" data-image-index="${index}">`).join('')}
             </div>
             <button class="gallery-nav next" type="button" data-dir="1" aria-label="Next product image"><i class="fas fa-chevron-right"></i></button>
           </div>
         `
-        : `<img src="${galleryImages[0]}" alt="${product.name}" loading="lazy">`;
+        : `<img src="${galleryImages[0]}" alt="${product.name}" loading="lazy" data-product-id="${product.id}" data-image-index="0">`;
       card.innerHTML = `
         <div class="product-img-frame">
           ${imageMarkup}
@@ -1757,6 +1917,114 @@
       });
     });
 
+  }
+
+  // Product image lightbox (product photos only — does not affect hero/rose-frame)
+  const lightboxState = { images: [], index: 0, zoom: 1, title: '' };
+
+  function clamp(value, min, max) {
+    return Math.min(max, Math.max(min, value));
+  }
+
+  function setLightboxZoom(nextZoom) {
+    lightboxState.zoom = clamp(nextZoom, 1, 4);
+    const img = document.getElementById('lightboxImg');
+    const label = document.getElementById('lightboxZoomLabel');
+    if (img) {
+      img.style.setProperty('--zoom', String(lightboxState.zoom));
+      img.classList.toggle('zoomed', lightboxState.zoom > 1);
+    }
+    if (label) label.textContent = `${Math.round(lightboxState.zoom * 100)}%`;
+  }
+
+  function setLightboxImage(nextIndex) {
+    if (!lightboxState.images.length) return;
+    lightboxState.index = (nextIndex + lightboxState.images.length) % lightboxState.images.length;
+    const img = document.getElementById('lightboxImg');
+    if (img) img.src = lightboxState.images[lightboxState.index];
+    setLightboxZoom(1);
+  }
+
+  function openProductLightbox(productId, startIndex) {
+    const product = productsData.find((p) => p.id === productId);
+    if (!product) return;
+    lightboxState.images = Array.isArray(product.images) && product.images.length ? product.images : [product.image];
+    lightboxState.title = `${product.brand} ${product.name}`;
+
+    const overlay = document.getElementById('lightboxOverlay');
+    const title = document.getElementById('lightboxTitle');
+    if (title) title.textContent = lightboxState.title;
+    if (overlay) {
+      overlay.classList.add('open');
+      overlay.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('lightbox-open');
+    }
+    setLightboxImage(Number.isInteger(startIndex) ? startIndex : 0);
+  }
+
+  function closeProductLightbox() {
+    const overlay = document.getElementById('lightboxOverlay');
+    if (overlay) {
+      overlay.classList.remove('open');
+      overlay.setAttribute('aria-hidden', 'true');
+    }
+    document.body.classList.remove('lightbox-open');
+    lightboxState.images = [];
+    lightboxState.index = 0;
+    lightboxState.title = '';
+    setLightboxZoom(1);
+  }
+
+  function initProductLightbox() {
+    const overlay = document.getElementById('lightboxOverlay');
+    const closeBtn = document.getElementById('lightboxCloseBtn');
+    const prevBtn = document.getElementById('lightboxPrevBtn');
+    const nextBtn = document.getElementById('lightboxNextBtn');
+    const zoomInBtn = document.getElementById('lightboxZoomInBtn');
+    const zoomOutBtn = document.getElementById('lightboxZoomOutBtn');
+    const stage = document.getElementById('lightboxStage');
+    const img = document.getElementById('lightboxImg');
+
+    closeBtn?.addEventListener('click', closeProductLightbox);
+    overlay?.addEventListener('click', (event) => {
+      if (event.target === overlay) closeProductLightbox();
+    });
+    prevBtn?.addEventListener('click', () => setLightboxImage(lightboxState.index - 1));
+    nextBtn?.addEventListener('click', () => setLightboxImage(lightboxState.index + 1));
+    zoomInBtn?.addEventListener('click', () => setLightboxZoom(lightboxState.zoom + 0.25));
+    zoomOutBtn?.addEventListener('click', () => setLightboxZoom(lightboxState.zoom - 0.25));
+
+    img?.addEventListener('click', () => {
+      setLightboxZoom(lightboxState.zoom > 1 ? 1 : 2);
+    });
+
+    stage?.addEventListener('wheel', (event) => {
+      if (!overlay?.classList.contains('open')) return;
+      event.preventDefault();
+      const delta = event.deltaY > 0 ? -0.12 : 0.12;
+      setLightboxZoom(lightboxState.zoom + delta);
+    }, { passive: false });
+
+    document.addEventListener('keydown', (event) => {
+      if (!overlay?.classList.contains('open')) return;
+      if (event.key === 'Escape') closeProductLightbox();
+      if (event.key === 'ArrowLeft') setLightboxImage(lightboxState.index - 1);
+      if (event.key === 'ArrowRight') setLightboxImage(lightboxState.index + 1);
+      if (event.key === '+' || event.key === '=') setLightboxZoom(lightboxState.zoom + 0.25);
+      if (event.key === '-' || event.key === '_') setLightboxZoom(lightboxState.zoom - 0.25);
+    });
+
+    // Delegate clicks from product grid only (hero/rose-frame untouched)
+    const grid = document.getElementById('productGrid');
+    grid?.addEventListener('click', (event) => {
+      const target = event.target;
+      const imgEl = target instanceof Element ? target.closest('img[data-product-id]') : null;
+      if (!imgEl) return;
+      const productId = Number.parseInt(imgEl.getAttribute('data-product-id') || '', 10);
+      const imageIndex = Number.parseInt(imgEl.getAttribute('data-image-index') || '0', 10);
+      if (!Number.isInteger(productId)) return;
+      openProductLightbox(productId, Number.isInteger(imageIndex) ? imageIndex : 0);
+    });
   }
   
   // filter active UI + rerender
@@ -1922,6 +2190,7 @@
     initHeroCarousel();
     initWatchAddToCart();
     initThemeToggle();
+    initProductLightbox();
     // add sample dynamic notice: users can replace image links easily
     console.log("✅ Website ready — Replace product images via productsData array (image field). Brand, price, sizes, frames all set.");
   });
