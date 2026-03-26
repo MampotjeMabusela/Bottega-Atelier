@@ -181,5 +181,70 @@
     "badge": "Only 2 left",
     "newestRank": 12,
     "popularScore": 92
+  },
+  {
+    "id": 13,
+    "brand": "Bottega",
+    "name": "Owen Seak Men Parker Coat Gothic Style",
+    "category": "clothing",
+    "price": 5500,
+    "sizes": ["XS", "S", "M", "L", "XL"],
+    "image": "assets/owen-parker-1.png",
+    "images": [
+      "assets/owen-parker-1.png",
+      "assets/owen-parker-2.png",
+      "assets/owen-parker-3.png",
+      "assets/owen-parker-4.png",
+      "assets/owen-parker-5.png"
+    ],
+    "material": "Technical gothic-style shell with longline drape and utility zip pockets.",
+    "fit": "Relaxed parka silhouette with structured hood.",
+    "sizeGuide": "True to size. Size up for oversized layering look.",
+    "badge": "New drop",
+    "newestRank": 13,
+    "popularScore": 90
+  },
+  {
+    "id": 14,
+    "brand": "Bottega",
+    "name": "GL Style Distressed Hole Mud Stauned Beggar Jacket Men",
+    "category": "clothing",
+    "price": 7500,
+    "sizes": ["XS", "S", "M", "L", "XL"],
+    "image": "assets/gl-beggar-jacket-1.png",
+    "images": [
+      "assets/gl-beggar-jacket-1.png",
+      "assets/gl-beggar-jacket-2.png",
+      "assets/gl-beggar-jacket-3.png",
+      "assets/gl-beggar-jacket-4.png",
+      "assets/gl-beggar-jacket-5.png",
+      "assets/gl-beggar-jacket-6.png"
+    ],
+    "material": "Distressed heavy canvas jacket with mud-stained treatment and utility pocket detailing.",
+    "fit": "Regular-to-relaxed fit with structured shoulders.",
+    "sizeGuide": "Take your normal size. Size up for oversized layering.",
+    "badge": "New drop",
+    "newestRank": 14,
+    "popularScore": 93
+  },
+  {
+    "id": 15,
+    "brand": "Bottega",
+    "name": "Maison Margiela Tabi High-Top Sneakers Men",
+    "category": "shoes",
+    "price": 8000,
+    "sizes": ["US 7", "US 8", "US 9", "US 10", "US 11"],
+    "image": "assets/margiela-tabi-1.png",
+    "images": [
+      "assets/margiela-tabi-1.png",
+      "assets/margiela-tabi-2.png",
+      "assets/margiela-tabi-3.png"
+    ],
+    "material": "Premium canvas high-top upper with signature split-toe silhouette and rubber sole.",
+    "fit": "Regular fit with supportive ankle structure.",
+    "sizeGuide": "True to size. If between sizes, choose one size up.",
+    "badge": "Popular this week",
+    "newestRank": 15,
+    "popularScore": 95
   }
 ]
