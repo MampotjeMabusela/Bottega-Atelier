@@ -26,6 +26,8 @@
       --accent: #131110;
       --accent-soft: #ece6dc;
       --gold: #9e825b;
+      --sale-clothing: #b56a2a;
+      --sale-shoes: #5e5fae;
     }
 
     body {
@@ -42,6 +44,188 @@
     }
     body.drawer-open {
       overflow: hidden;
+    }
+    .easter-decor {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 2;
+      overflow: hidden;
+    }
+    .easter-decor::before,
+    .easter-decor::after {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      opacity: 0.32;
+      animation: floatDecor 8s ease-in-out infinite;
+    }
+    .easter-decor::before {
+      top: 16%;
+      left: -90px;
+      background:
+        radial-gradient(circle at 35% 35%, rgba(255, 239, 198, 0.95) 0 28%, rgba(255, 239, 198, 0) 30%),
+        radial-gradient(circle at 68% 62%, rgba(255, 207, 153, 0.9) 0 20%, rgba(255, 207, 153, 0) 22%),
+        linear-gradient(135deg, rgba(248, 212, 165, 0.45), rgba(235, 179, 123, 0.4));
+    }
+    .easter-decor::after {
+      right: -90px;
+      bottom: 12%;
+      background:
+        radial-gradient(circle at 30% 62%, rgba(232, 225, 255, 0.9) 0 18%, rgba(232, 225, 255, 0) 20%),
+        radial-gradient(circle at 66% 35%, rgba(211, 243, 216, 0.88) 0 24%, rgba(211, 243, 216, 0) 26%),
+        linear-gradient(130deg, rgba(209, 198, 255, 0.42), rgba(184, 232, 196, 0.4));
+      animation-delay: 1.8s;
+    }
+    @keyframes floatDecor {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-14px) rotate(3deg); }
+    }
+    .easter-banner {
+      margin: 1rem 2rem 0.3rem;
+      border-radius: 16px;
+      padding: 0.72rem 1rem;
+      text-align: center;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      color: #2f1f11;
+      border: 1px solid rgba(168, 120, 82, 0.28);
+      background:
+        radial-gradient(circle at 16% 50%, rgba(255, 228, 182, 0.72), transparent 42%),
+        radial-gradient(circle at 82% 45%, rgba(215, 241, 229, 0.72), transparent 43%),
+        linear-gradient(120deg, rgba(255, 250, 237, 0.94), rgba(250, 236, 212, 0.92));
+      box-shadow: 0 12px 26px -20px rgba(63, 38, 20, 0.6);
+    }
+    .easter-banner .highlight {
+      color: #8f4d1f;
+    }
+    .easter-showcase {
+      margin: 0.9rem 2rem 0.7rem;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.8rem;
+    }
+    .easter-mini-banner {
+      min-height: 96px;
+      border-radius: 14px;
+      border: 1px solid rgba(155, 130, 102, 0.28);
+      box-shadow: 0 14px 26px -22px rgba(61, 41, 24, 0.65);
+      position: relative;
+      overflow: hidden;
+      padding: 0.8rem 0.9rem;
+    }
+    .easter-mini-banner h4 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+    .easter-mini-banner p {
+      font-size: 0.8rem;
+      font-weight: 600;
+      max-width: 24ch;
+      line-height: 1.25;
+    }
+    .easter-mini-banner.eggs {
+      background:
+        radial-gradient(circle at 86% 20%, rgba(255, 236, 210, 0.72) 0 22%, transparent 24%),
+        radial-gradient(circle at 72% 62%, rgba(207, 237, 220, 0.78) 0 19%, transparent 21%),
+        linear-gradient(135deg, #d6f1c8, #a8d79a);
+      color: #205932;
+    }
+    .easter-mini-banner.eggs::after {
+      content: "Easter";
+      position: absolute;
+      right: 0.8rem;
+      bottom: 0.55rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: rgba(12, 87, 45, 0.68);
+    }
+    .easter-mini-banner.spring {
+      background:
+        linear-gradient(132deg, #fff4dc 0 48%, #ffd66f 48% 56%, #ff6aa0 56% 63%, #8af0b2 63% 100%);
+      color: #2d2830;
+    }
+    .easter-mini-banner.spring::after {
+      content: "SPRING SALE";
+      position: absolute;
+      right: 0.95rem;
+      top: 0.7rem;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.6px;
+      color: rgba(57, 40, 58, 0.8);
+    }
+    .easter-mini-banner.classic {
+      background:
+        radial-gradient(circle at 18% 30%, rgba(237, 228, 180, 0.92) 0 18%, transparent 20%),
+        radial-gradient(circle at 36% 65%, rgba(205, 232, 209, 0.95) 0 16%, transparent 18%),
+        radial-gradient(circle at 55% 33%, rgba(226, 232, 199, 0.94) 0 17%, transparent 19%),
+        linear-gradient(130deg, #a9c1a1, #89a486);
+      color: #2c3e2d;
+    }
+    .easter-mini-banner.classic h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      margin-top: 0.1rem;
+      margin-bottom: 0.05rem;
+    }
+    .easter-mini-banner.classic p {
+      font-size: 0.74rem;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+    }
+    .egg-overlay {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 30;
+    }
+    .floating-egg {
+      position: fixed;
+      width: 26px;
+      height: 34px;
+      border-radius: 50% 50% 48% 48%;
+      border: 2px solid rgba(255, 255, 255, 0.72);
+      box-shadow: 0 8px 18px -12px rgba(0, 0, 0, 0.45);
+      pointer-events: auto;
+      cursor: pointer;
+      animation: driftEgg var(--egg-duration, 6s) ease-in-out infinite;
+      transform-origin: center;
+      z-index: 31;
+    }
+    .floating-egg::before {
+      content: "";
+      position: absolute;
+      inset: 6px 7px auto;
+      height: 8px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.68);
+      transform: rotate(-8deg);
+    }
+    .floating-egg:active {
+      transform: scale(0.94);
+    }
+    @keyframes driftEgg {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      50% { transform: translate(var(--egg-x, 10px), var(--egg-y, -12px)) rotate(8deg); }
+    }
+    .confetti-piece {
+      position: fixed;
+      width: 8px;
+      height: 12px;
+      border-radius: 2px;
+      z-index: 40;
+      pointer-events: none;
+      animation: confettiFall 1.95s linear forwards;
+    }
+    @keyframes confettiFall {
+      0% { opacity: 0.95; transform: translate(0, 0) rotate(0deg); }
+      100% { opacity: 0; transform: translate(var(--dx, 0px), 105vh) rotate(540deg); }
     }
 
     /* Custom scrollbar */
@@ -348,6 +532,39 @@
       transform: translateY(-8px);
       box-shadow: 0 24px 42px -18px rgba(40, 24, 8, 0.33);
       border-color: #8f7453;
+    }
+    .sale-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      margin-top: 0.45rem;
+      margin-bottom: 0.1rem;
+      padding: 0.24rem 0.62rem;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.35px;
+      text-transform: uppercase;
+      background: #f7efe5;
+      border: 1px solid #e6d0b3;
+      color: #8e5831;
+    }
+    .sale-chip.shoes {
+      border-color: #d9dbf3;
+      background: #eff0fd;
+      color: #4e53a9;
+    }
+    .price-with-discount {
+      display: flex;
+      align-items: baseline;
+      gap: 0.55rem;
+      flex-wrap: wrap;
+    }
+    .price-original {
+      color: #7f776b;
+      font-size: 0.94rem;
+      text-decoration: line-through;
+      opacity: 0.85;
     }
     /* image frame */
     .product-img-frame {
@@ -839,6 +1056,9 @@
       }
     }
     @media (max-width: 860px) {
+      .easter-showcase {
+        grid-template-columns: 1fr;
+      }
       .nav-container {
         flex-direction: column;
         align-items: stretch;
@@ -875,6 +1095,11 @@
       }
     }
     @media (max-width: 560px) {
+      .easter-banner,
+      .easter-showcase {
+        margin-left: 0.75rem;
+        margin-right: 0.75rem;
+      }
       .header {
         padding: 0.75rem 0.8rem;
       }
@@ -1050,6 +1275,54 @@
     body.dark-theme .add-to-cart:hover {
       background: linear-gradient(135deg, #efe3d0, #fff2df);
     }
+    body.dark-theme .easter-banner {
+      color: #f8ebe0;
+      border-color: rgba(235, 185, 129, 0.33);
+      background:
+        radial-gradient(circle at 12% 45%, rgba(169, 107, 49, 0.42), transparent 44%),
+        radial-gradient(circle at 88% 45%, rgba(109, 129, 219, 0.35), transparent 44%),
+        linear-gradient(120deg, rgba(34, 26, 22, 0.95), rgba(47, 35, 28, 0.95));
+    }
+    body.dark-theme .easter-banner .highlight {
+      color: #ffd09f;
+    }
+    body.dark-theme .easter-mini-banner {
+      border-color: rgba(214, 183, 151, 0.22);
+      box-shadow: 0 18px 30px -22px rgba(0, 0, 0, 0.7);
+    }
+    body.dark-theme .easter-mini-banner.eggs {
+      background:
+        radial-gradient(circle at 86% 20%, rgba(91, 80, 52, 0.42) 0 22%, transparent 24%),
+        radial-gradient(circle at 72% 62%, rgba(52, 105, 80, 0.4) 0 19%, transparent 21%),
+        linear-gradient(135deg, #2c4431, #3f5e44);
+      color: #dff3d5;
+    }
+    body.dark-theme .easter-mini-banner.spring {
+      background:
+        linear-gradient(132deg, #3f3327 0 48%, #835c15 48% 56%, #7f3152 56% 63%, #216145 63% 100%);
+      color: #f6e9d1;
+    }
+    body.dark-theme .easter-mini-banner.classic {
+      background:
+        radial-gradient(circle at 18% 30%, rgba(146, 131, 86, 0.52) 0 18%, transparent 20%),
+        radial-gradient(circle at 36% 65%, rgba(73, 113, 78, 0.5) 0 16%, transparent 18%),
+        radial-gradient(circle at 55% 33%, rgba(124, 128, 93, 0.52) 0 17%, transparent 19%),
+        linear-gradient(130deg, #495844, #3c4f3c);
+      color: #d7e7d4;
+    }
+    body.dark-theme .sale-chip {
+      background: #3a2a1f;
+      border-color: #6c4a32;
+      color: #ffcf9d;
+    }
+    body.dark-theme .sale-chip.shoes {
+      background: #262f54;
+      border-color: #4e5d98;
+      color: #c9d0ff;
+    }
+    body.dark-theme .price-original {
+      color: #9e9aa0;
+    }
     body.dark-theme .legal-links a {
       background: #272b30;
       border-color: #40454d;
@@ -1211,6 +1484,7 @@
   </style>
 </head>
 <body>
+<div class="easter-decor" aria-hidden="true"></div>
 
 <header class="header">
   <div class="nav-container">
@@ -1232,6 +1506,23 @@
 </header>
 
 <main>
+<div class="easter-banner">
+  Easter Holiday Specials: <span class="highlight">15% OFF Clothing</span> and <span class="highlight">10% OFF Shoes</span> for a limited time.
+</div>
+<section class="easter-showcase" aria-label="Easter holiday banners">
+  <article class="easter-mini-banner eggs">
+    <h4>Fresh Easter Edit</h4>
+    <p>Pastel touches and premium pieces for your holiday wardrobe.</p>
+  </article>
+  <article class="easter-mini-banner spring">
+    <h4>Spring Luxury Week</h4>
+    <p>Curated seasonal discounts, styled for modern statement looks.</p>
+  </article>
+  <article class="easter-mini-banner classic">
+    <h4>Happy Easter</h4>
+    <p>Bottega Atelier holiday collection</p>
+  </article>
+</section>
 <section class="hero" aria-label="Hero">
   <div class="hero-text">
     <div class="hero-photo-frame">
@@ -1341,6 +1632,7 @@
   <button class="checkout-btn" id="checkoutBtn" type="button">Proceed to Checkout →</button>
 </aside>
 <div id="toastMsg" class="toast-msg"></div>
+<div class="egg-overlay" id="eggOverlay" aria-hidden="true"></div>
 
 <!-- Product Image Lightbox (product photos only) -->
 <div class="lightbox-overlay" id="lightboxOverlay" aria-hidden="true">
@@ -1579,6 +1871,15 @@
   // ---------- GLOBALS ----------
   const STORAGE_KEY = 'bottega_cart';
   const WHATSAPP_BUSINESS_NUMBER = '27660647425';
+  const EASTER_SALE = {
+    active: true,
+    clothingDiscount: 0.15,
+    shoesDiscount: 0.10,
+  };
+  const EASTER_THEME = {
+    active: true,
+    interactiveEggs: true,
+  };
   const BUSINESS_DETAILS = {
     name: 'BOTTEGA ATELIER',
     reg: 'Reg: 2026/ATL/094',
@@ -1593,6 +1894,25 @@
   let cart = []; // each item: { id, size, quantity, name, price, brand, image }
   let currentFilter = "all";
   let toastTimerId;
+
+  function getDiscountRate(product) {
+    if (!EASTER_SALE.active || !product) return 0;
+    if (product.category === 'clothing') return EASTER_SALE.clothingDiscount;
+    if (product.category === 'shoes') return EASTER_SALE.shoesDiscount;
+    return 0;
+  }
+
+  function getDisplayPriceInfo(product) {
+    const basePrice = Number(product?.price || 0);
+    const discountRate = getDiscountRate(product);
+    const discountedPrice = Number((basePrice * (1 - discountRate)).toFixed(2));
+    return {
+      basePrice,
+      discountRate,
+      discountedPrice,
+      hasDiscount: discountRate > 0 && discountedPrice < basePrice,
+    };
+  }
 
   function formatRand(value, includeCents = false) {
     const amount = includeCents ? Number(value).toFixed(2) : Number(value).toLocaleString('en-ZA');
@@ -1733,6 +2053,12 @@
     doc.setFont('helvetica', 'bold');
     doc.setFontSize(12);
     doc.text(`TOTAL: ${formatRand(total, true)}`, pageWidth - margin, cursorY, { align: 'right' });
+    if (EASTER_SALE.active) {
+      cursorY += 5;
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(8.5);
+      doc.text('Easter sale discounts applied where eligible.', pageWidth - margin, cursorY, { align: 'right' });
+    }
     cursorY += 10;
 
     doc.setFont('helvetica', 'normal');
@@ -1842,7 +2168,7 @@
         <div class="cart-item-details">
           <div class="cart-item-name">${item.brand} ${item.name}</div>
           <div class="cart-item-size">Size: ${item.size}</div>
-          <div class="cart-item-price">${formatRand(item.price)}</div>
+          <div class="cart-item-price">${formatRand(item.price)}${item.originalPrice ? ` <span class="price-original">${formatRand(item.originalPrice)}</span>` : ''}</div>
           <div class="cart-qty">
             <button class="qty-btn" data-idx="${idx}" data-delta="-1">-</button>
             <span>${item.quantity}</span>
@@ -1864,6 +2190,20 @@
       const saved = localStorage.getItem(STORAGE_KEY);
       cart = saved ? JSON.parse(saved) : [];
       if (!Array.isArray(cart)) cart = [];
+      cart = cart.map((item) => {
+        if (item && Number.isInteger(item.id)) {
+          const product = productsData.find((p) => p.id === item.id);
+          if (product) {
+            const pricing = getDisplayPriceInfo(product);
+            return {
+              ...item,
+              price: pricing.hasDiscount ? pricing.discountedPrice : pricing.basePrice,
+              originalPrice: pricing.hasDiscount ? pricing.basePrice : undefined,
+            };
+          }
+        }
+        return item;
+      });
     } catch (error) {
       console.warn('Failed to read cart from localStorage.', error);
       cart = [];
@@ -1875,6 +2215,7 @@
   function addToCart(productId, selectedSize) {
     const product = productsData.find(p => p.id === productId);
     if (!product) return;
+    const pricing = getDisplayPriceInfo(product);
     if (!selectedSize) {
       showToast("Please select a size");
       return;
@@ -1889,7 +2230,8 @@
         size: selectedSize,
         quantity: 1,
         name: product.name,
-        price: product.price,
+        price: pricing.hasDiscount ? pricing.discountedPrice : pricing.basePrice,
+        originalPrice: pricing.hasDiscount ? pricing.basePrice : undefined,
         brand: product.brand,
         image: Array.isArray(product.images) && product.images.length ? product.images[0] : product.image,
       });
@@ -1947,9 +2289,16 @@
     filtered.forEach(product => {
       const card = document.createElement('div');
       card.className = 'product-card';
+      const pricing = getDisplayPriceInfo(product);
       // create size dropdown dynamically using product sizes array
       const sizeOptions = product.sizes.map(sz => `<option value="${sz}">${sz}</option>`).join('');
       const galleryImages = Array.isArray(product.images) && product.images.length ? product.images : [product.image];
+      const saleChip = pricing.hasDiscount
+        ? `<div class="sale-chip ${product.category === 'shoes' ? 'shoes' : 'clothing'}"><i class="fas fa-gift"></i> ${Math.round(pricing.discountRate * 100)}% OFF ${product.category}</div>`
+        : '';
+      const priceMarkup = pricing.hasDiscount
+        ? `<div class="price price-with-discount"><span class="price-original">${formatRand(pricing.basePrice, true)}</span> ${formatRand(pricing.discountedPrice, true)} <span>ZAR</span></div>`
+        : `<div class="price">${formatRand(pricing.basePrice, true)} <span>ZAR</span></div>`;
       const imageMarkup = galleryImages.length > 1
         ? `
           <div class="product-gallery">
@@ -1968,7 +2317,8 @@
         <div class="product-info">
           <div class="brand-name">${product.brand}</div>
           <div class="product-title">${product.name}</div>
-          <div class="price">${formatRand(product.price, true)} <span>ZAR</span></div>
+          ${saleChip}
+          ${priceMarkup}
           <div class="size-selector">
             <label><i class="fas fa-ruler-combined"></i> Size:</label>
             <select class="size-dropdown" data-id="${product.id}">
@@ -2237,6 +2587,63 @@
     resetAutoSlide();
   }
 
+  function createConfettiBurst(x, y) {
+    const palette = ['#ffd166', '#ef476f', '#06d6a0', '#118ab2', '#cdb4db', '#f7b267'];
+    const pieces = 30;
+    for (let i = 0; i < pieces; i += 1) {
+      const piece = document.createElement('span');
+      piece.className = 'confetti-piece';
+      piece.style.left = `${x}px`;
+      piece.style.top = `${y}px`;
+      piece.style.background = palette[i % palette.length];
+      piece.style.setProperty('--dx', `${Math.random() * 180 - 90}px`);
+      piece.style.animationDelay = `${Math.random() * 0.15}s`;
+      document.body.appendChild(piece);
+      setTimeout(() => piece.remove(), 2200);
+    }
+  }
+
+  function initEasterEggHunt() {
+    const overlay = document.getElementById('eggOverlay');
+    if (!overlay || !EASTER_THEME.active || !EASTER_THEME.interactiveEggs) return;
+    const eggCount = window.innerWidth < 700 ? 8 : 12;
+    const palettes = [
+      'linear-gradient(160deg, #f7d794, #f5b58f)',
+      'linear-gradient(160deg, #c7f9cc, #80ed99)',
+      'linear-gradient(160deg, #bde0fe, #a2d2ff)',
+      'linear-gradient(160deg, #ffc8dd, #ffafcc)',
+      'linear-gradient(160deg, #e9d8fd, #cdb4db)',
+    ];
+    overlay.innerHTML = '';
+
+    for (let i = 0; i < eggCount; i += 1) {
+      const egg = document.createElement('button');
+      egg.type = 'button';
+      egg.className = 'floating-egg';
+      egg.setAttribute('aria-label', 'Easter egg');
+      egg.dataset.clicks = '0';
+      egg.style.background = palettes[i % palettes.length];
+      egg.style.left = `${4 + Math.random() * 90}%`;
+      egg.style.top = `${11 + Math.random() * 75}%`;
+      egg.style.setProperty('--egg-x', `${Math.random() * 28 - 14}px`);
+      egg.style.setProperty('--egg-y', `${-8 - Math.random() * 18}px`);
+      egg.style.setProperty('--egg-duration', `${5 + Math.random() * 4}s`);
+
+      egg.addEventListener('click', (event) => {
+        event.preventDefault();
+        const clickCount = Number.parseInt(egg.dataset.clicks || '0', 10) + 1;
+        egg.dataset.clicks = String(clickCount);
+        if (clickCount % 3 === 0) {
+          const rect = egg.getBoundingClientRect();
+          createConfettiBurst(rect.left + rect.width / 2, rect.top + rect.height / 2);
+          showToast('Easter pop! Keep tapping eggs for confetti.');
+        }
+      });
+
+      overlay.appendChild(egg);
+    }
+  }
+
   function initThemeToggle() {
     const themeButton = document.getElementById('themeToggleBtn');
     if (!themeButton) return;
@@ -2282,6 +2689,7 @@
     initWatchAddToCart();
     initThemeToggle();
     initProductLightbox();
+    initEasterEggHunt();
     // add sample dynamic notice: users can replace image links easily
     console.log("✅ Website ready — Replace product images via productsData array (image field). Brand, price, sizes, frames all set.");
   });
