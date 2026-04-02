@@ -312,5 +312,26 @@
     "badge": "Popular this week",
     "newestRank": 18,
     "popularScore": 92
+  },
+  {
+    "id": 19,
+    "brand": "Bottega",
+    "name": "Off-White Vulcanised Low White Sneaker Men",
+    "category": "shoes",
+    "price": 10000,
+    "sizes": ["US 7", "US 8", "US 9", "US 10", "US 11"],
+    "image": "assets/offwhite-vulcanised-low-1.png",
+    "images": [
+      "assets/offwhite-vulcanised-low-1.png",
+      "assets/offwhite-vulcanised-low-2.png",
+      "assets/offwhite-vulcanised-low-3.png",
+      "assets/offwhite-vulcanised-low-4.png"
+    ],
+    "material": "Premium leather sneaker with vulcanised sole and signature graphic accents.",
+    "fit": "Regular fit with comfortable padded collar.",
+    "sizeGuide": "True to size. If between sizes, choose one size up.",
+    "badge": "New drop",
+    "newestRank": 19,
+    "popularScore": 94
   }
 ]
