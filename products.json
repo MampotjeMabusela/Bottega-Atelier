@@ -246,5 +246,71 @@
     "badge": "Popular this week",
     "newestRank": 15,
     "popularScore": 95
+  },
+  {
+    "id": 16,
+    "brand": "Bottega",
+    "name": "CC ShopTop.Men Vintage 507 Leather Jacket Retro Light Blue",
+    "category": "clothing",
+    "price": 7500,
+    "sizes": ["XS", "S", "M", "L", "XL"],
+    "image": "assets/cc-vintage-507-1.png",
+    "images": [
+      "assets/cc-vintage-507-1.png",
+      "assets/cc-vintage-507-2.png",
+      "assets/cc-vintage-507-3.png",
+      "assets/cc-vintage-507-4.png"
+    ],
+    "material": "Vintage-finish leather shell with retro trucker panel construction.",
+    "fit": "Regular fit with structured shoulders and classic length.",
+    "sizeGuide": "Choose your normal size. Size up for looser layering.",
+    "badge": "New drop",
+    "newestRank": 16,
+    "popularScore": 94
+  },
+  {
+    "id": 17,
+    "brand": "Bottega",
+    "name": "Dark Functional Distress Style Collar Jacket (Hidden hat Coat) Men",
+    "category": "clothing",
+    "price": 8500,
+    "sizes": ["XS", "S", "M", "L", "XL"],
+    "image": "assets/dark-functional-jacket-1.png",
+    "images": [
+      "assets/dark-functional-jacket-1.png",
+      "assets/dark-functional-jacket-2.png",
+      "assets/dark-functional-jacket-3.png",
+      "assets/dark-functional-jacket-4.png",
+      "assets/dark-functional-jacket-5.png"
+    ],
+    "material": "Distressed technical shell with mixed-panel construction and hidden hood design.",
+    "fit": "Relaxed functional fit with dropped shoulder profile.",
+    "sizeGuide": "Choose normal size. Size up for layered streetwear fit.",
+    "badge": "New drop",
+    "newestRank": 17,
+    "popularScore": 96
+  },
+  {
+    "id": 18,
+    "brand": "Bottega",
+    "name": "Baigo Bendi Soft Leather Motocycle Punk Boots Coffe/Black Men",
+    "category": "shoes",
+    "price": 4500,
+    "sizes": ["US 7", "US 8", "US 9", "US 10", "US 11"],
+    "image": "assets/baigo-bendi-boots-1.png",
+    "images": [
+      "assets/baigo-bendi-boots-1.png",
+      "assets/baigo-bendi-boots-2.png",
+      "assets/baigo-bendi-boots-3.png",
+      "assets/baigo-bendi-boots-4.png",
+      "assets/baigo-bendi-boots-5.png",
+      "assets/baigo-bendi-boots-6.png"
+    ],
+    "material": "Soft premium leather upper with rugged outsole and punk-inspired lace-up profile.",
+    "fit": "Regular boot fit with structured ankle support.",
+    "sizeGuide": "Choose normal size. Size up for thicker socks.",
+    "badge": "Popular this week",
+    "newestRank": 18,
+    "popularScore": 92
   }
 ]
