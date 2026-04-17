@@ -749,6 +749,11 @@
     }
     .whatsapp-contact {
       margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.9rem;
+      flex-wrap: wrap;
     }
     .social-links {
       margin-top: 0.8rem;
@@ -793,6 +798,16 @@
     }
     .whatsapp-link i {
       font-size: 1.15rem;
+    }
+    .instagram-link {
+      color: #1a1715;
+      background: #f5f2ec;
+      border-color: #d8cdbf;
+    }
+    .x-link {
+      color: #1a1715;
+      background: #f5f2ec;
+      border-color: #d8cdbf;
     }
     .tiktok-link {
       color: #1a1715;
@@ -1060,6 +1075,16 @@
       border-color: #295338;
       color: #8be0ad;
     }
+    body.dark-theme .instagram-link {
+      background: #2a2d32;
+      border-color: #40454d;
+      color: #e7dfd2;
+    }
+    body.dark-theme .x-link {
+      background: #2a2d32;
+      border-color: #40454d;
+      color: #e7dfd2;
+    }
     body.dark-theme .tiktok-link {
       background: #2a2d32;
       border-color: #40454d;
@@ -1310,6 +1335,26 @@
     </a>
   </div>
   <div class="social-links">
+    <a
+      class="social-link x-link"
+      href="https://x.com/AtelierBotega"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Visit Atelier Botega on X"
+    >
+      <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+      Follow us on X
+    </a>
+    <a
+      class="social-link instagram-link"
+      href="https://www.instagram.com/atelier_bottega_store/"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Visit Atelier Bottega Store on Instagram"
+    >
+      <i class="fab fa-instagram" aria-hidden="true"></i>
+      Follow us on Instagram
+    </a>
     <a
       class="social-link tiktok-link"
       href="https://www.tiktok.com/@blaze094?_r=1&_t=ZS-94vDlQXVM2e"
