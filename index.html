@@ -478,12 +478,13 @@
     .product-card-actions {
       margin-top: 0.6rem;
       display: grid;
-      grid-template-columns: 1fr auto;
+      grid-template-columns: 1fr auto auto;
       gap: 0.5rem;
       align-items: center;
     }
     .quick-view-btn,
-    .wishlist-btn {
+    .wishlist-btn,
+    .share-btn {
       border: 1px solid #d4c8b8;
       background: #f7f1e7;
       color: #2a241d;
@@ -495,7 +496,8 @@
       transition: 0.2s ease;
     }
     .quick-view-btn:hover,
-    .wishlist-btn:hover {
+    .wishlist-btn:hover,
+    .share-btn:hover {
       transform: translateY(-1px);
     }
     .wishlist-btn.active {
@@ -1500,7 +1502,8 @@
       color: #b9ad9d;
     }
     body.dark-theme .quick-view-btn,
-    body.dark-theme .wishlist-btn {
+    body.dark-theme .wishlist-btn,
+    body.dark-theme .share-btn {
       background: #2a2d32;
       border-color: #40454d;
       color: #e6dccd;
@@ -2455,6 +2458,44 @@
     return 0;
   }
 
+  function buildProductShareUrl(productId) {
+    const base = `${window.location.origin}${window.location.pathname}`;
+    return `${base}?product=${encodeURIComponent(String(productId))}`;
+  }
+
+  async function shareProduct(productId) {
+    const product = getCatalogById(productId);
+    if (!product) return;
+    const shareUrl = buildProductShareUrl(productId);
+    const shareTitle = `${product.brand} ${product.name}`;
+    const shareText = `Check out this product on Bottega Atelier: ${shareTitle}`;
+    try {
+      if (navigator.share) {
+        await navigator.share({
+          title: shareTitle,
+          text: shareText,
+          url: shareUrl,
+        });
+        trackEvent('product_share', { productId, method: 'native' });
+        return;
+      }
+    } catch (error) {
+      // Continue to clipboard fallback when share is cancelled/unavailable.
+    }
+    if (navigator.clipboard?.writeText) {
+      try {
+        await navigator.clipboard.writeText(`${shareText}\n${shareUrl}`);
+        showToast('Product link copied. Share it on social media.');
+        trackEvent('product_share', { productId, method: 'clipboard' });
+        return;
+      } catch (error) {
+        // fall through to prompt fallback
+      }
+    }
+    window.prompt('Copy and share this product link:', `${shareText}\n${shareUrl}`);
+    trackEvent('product_share', { productId, method: 'prompt' });
+  }
+
   function renderRecentlyViewed() {
     const container = document.getElementById('recentlyViewedGrid');
     if (!container) return;
@@ -3052,6 +3093,7 @@
           <div class="stock-status ${stockInfo.className}" data-stock-for="${product.id}">${stockInfo.text}</div>
           <div class="product-card-actions">
             <button class="quick-view-btn" data-quick-id="${product.id}" type="button"><i class="fas fa-eye"></i> Quick view</button>
+            <button class="share-btn" data-share-id="${product.id}" type="button" aria-label="Share this product"><i class="fas fa-share-nodes"></i></button>
             <button class="wishlist-btn ${isWishlisted ? 'active' : ''}" data-wishlist-id="${product.id}" type="button" aria-label="Toggle wishlist">
               <i class="fas fa-heart"></i>
             </button>
@@ -3110,6 +3152,14 @@
         const productId = Number.parseInt(button.getAttribute('data-quick-id') || '', 10);
         if (!Number.isInteger(productId)) return;
         openQuickView(productId);
+      });
+    });
+
+    document.querySelectorAll('[data-share-id]').forEach((button) => {
+      button.addEventListener('click', async () => {
+        const productId = Number.parseInt(button.getAttribute('data-share-id') || '', 10);
+        if (!Number.isInteger(productId)) return;
+        await shareProduct(productId);
       });
     });
 
