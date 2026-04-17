@@ -679,6 +679,199 @@
       margin: 2.2rem auto 0;
       padding: 0 2rem;
     }
+    .about-section {
+      max-width: 1400px;
+      margin: 2.2rem auto 0;
+      padding: 0 2rem;
+    }
+    .about-card {
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.84), rgba(244, 235, 224, 0.78));
+      border: 1px solid #dacfbf;
+      border-radius: 1.35rem;
+      padding: clamp(1.2rem, 2.4vw, 2rem);
+      box-shadow: 0 22px 35px -30px rgba(0, 0, 0, 0.55);
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 1.1rem;
+      align-items: stretch;
+      position: relative;
+      overflow: hidden;
+      transform-style: preserve-3d;
+      perspective: 1200px;
+    }
+    .about-card::before,
+    .about-card::after {
+      content: '';
+      position: absolute;
+      pointer-events: none;
+      border-radius: 999px;
+      filter: blur(2px);
+    }
+    .about-card::before {
+      width: 190px;
+      height: 190px;
+      top: -76px;
+      right: -36px;
+      background: radial-gradient(circle, rgba(205, 170, 131, 0.34), rgba(205, 170, 131, 0) 70%);
+      opacity: 0.88;
+    }
+    .about-card::after {
+      width: 230px;
+      height: 230px;
+      bottom: -102px;
+      left: -74px;
+      background: radial-gradient(circle, rgba(106, 87, 64, 0.2), rgba(106, 87, 64, 0) 72%);
+      opacity: 0.72;
+    }
+    .about-main,
+    .about-pillars {
+      position: relative;
+      z-index: 1;
+    }
+    .about-main {
+      transform: translateZ(18px);
+    }
+    .about-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: #574a3d;
+      background: #eee2d2;
+      border: 1px solid #d9cab8;
+      border-radius: 999px;
+      padding: 0.3rem 0.7rem;
+      margin-bottom: 0.7rem;
+    }
+    .about-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.95rem, 4vw, 2.7rem);
+      color: #1d1711;
+      line-height: 1.08;
+      margin-bottom: 0.6rem;
+    }
+    .about-description {
+      color: #473d33;
+      font-size: 0.96rem;
+      line-height: 1.7;
+    }
+    .about-highlights {
+      margin-top: 0.95rem;
+      display: grid;
+      gap: 0.65rem;
+    }
+    .about-point {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      color: #2a241d;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .about-point i {
+      color: #82664b;
+    }
+    .about-pillars {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.7rem;
+      transform: translateZ(34px);
+    }
+    .about-pillar {
+      border: 1px solid #dbcfbf;
+      border-radius: 1rem;
+      padding: 0.85rem;
+      background: rgba(255, 255, 255, 0.72);
+      box-shadow: 0 14px 22px -24px rgba(0, 0, 0, 0.8);
+      transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease, background 0.28s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-pillar::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0));
+      transform: translateX(-110%);
+      transition: transform 0.6s ease;
+      pointer-events: none;
+    }
+    .about-pillar:hover {
+      transform: translateY(-4px) scale(1.01);
+      box-shadow: 0 22px 34px -28px rgba(0, 0, 0, 0.9);
+      border-color: #cdb9a0;
+      background: rgba(255, 255, 255, 0.88);
+    }
+    .about-pillar:hover::after {
+      transform: translateX(110%);
+    }
+    .about-pillar h3 {
+      font-size: 0.9rem;
+      letter-spacing: 0.45px;
+      text-transform: uppercase;
+      margin-bottom: 0.32rem;
+      color: #231d16;
+    }
+    .about-pillar p {
+      font-size: 0.85rem;
+      color: #544a40;
+      line-height: 1.5;
+    }
+    .about-graphics {
+      margin-top: 1rem;
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .about-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: linear-gradient(145deg, #f8f2e7, #eadcc7);
+      border: 1px solid #d8c4aa;
+      color: #2a221a;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.4rem 0.62rem;
+      border-radius: 999px;
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.8), 0 6px 10px -8px rgba(0, 0, 0, 0.8);
+    }
+    .about-orb {
+      width: 48px;
+      aspect-ratio: 1/1;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 28% 28%, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0) 36%),
+        linear-gradient(140deg, #efe2ce, #bfa07a);
+      border: 1px solid #cfb595;
+      box-shadow:
+        inset 9px 8px 16px rgba(255, 255, 255, 0.56),
+        inset -9px -10px 16px rgba(95, 67, 39, 0.28),
+        0 12px 16px -12px rgba(0, 0, 0, 0.8);
+      animation: aboutOrbFloat 6.5s ease-in-out infinite;
+      transform: translateZ(54px);
+    }
+    .about-orb.alt {
+      width: 38px;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.93), rgba(255, 255, 255, 0) 35%),
+        linear-gradient(140deg, #f6ecde, #cfb390);
+      animation-duration: 8s;
+      animation-delay: 0.9s;
+    }
+    @keyframes aboutOrbFloat {
+      0%,
+      100% {
+        transform: translateY(0) translateZ(54px);
+      }
+      50% {
+        transform: translateY(-8px) translateZ(54px);
+      }
+    }
     .testimonials-title {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(1.6rem, 2.8vw, 2.3rem);
@@ -842,6 +1035,7 @@
       }
       .hero,
       .filter-bar,
+      .about-section,
       .products-section,
       .testimonials-section {
         margin-left: 1.25rem;
@@ -865,6 +1059,12 @@
       }
       .hero {
         padding: 1.4rem 1rem;
+      }
+      .about-card {
+        grid-template-columns: 1fr;
+      }
+      .about-graphics {
+        margin-top: 0.8rem;
       }
       .hero-photo-frame {
         width: min(100%, 500px);
@@ -910,6 +1110,7 @@
       }
       .hero,
       .filter-bar,
+      .about-section,
       .products-section,
       .testimonials-section {
         margin-left: 0.75rem;
@@ -1028,6 +1229,7 @@
     body.dark-theme .hero,
     body.dark-theme .filter-bar,
     body.dark-theme .product-card,
+    body.dark-theme .about-card,
     body.dark-theme .watch-feature-card,
     body.dark-theme .testimonial-card,
     body.dark-theme .legal-card,
@@ -1094,11 +1296,50 @@
       color: #b9ad9d;
     }
     body.dark-theme .testimonials-title,
+    body.dark-theme .about-title,
     body.dark-theme .testimonial-name {
       color: #ece6dd;
     }
     body.dark-theme .testimonial-text {
       color: #b7ae9f;
+    }
+    body.dark-theme .about-kicker {
+      background: #2b2f34;
+      border-color: #40454d;
+      color: #ddd3c6;
+    }
+    body.dark-theme .about-description,
+    body.dark-theme .about-pillar p {
+      color: #b8b0a3;
+    }
+    body.dark-theme .about-point {
+      color: #e6dece;
+    }
+    body.dark-theme .about-point i {
+      color: #d0b592;
+    }
+    body.dark-theme .about-pillar {
+      background: rgba(30, 33, 38, 0.92);
+      border-color: #3f454d;
+    }
+    body.dark-theme .about-pillar:hover {
+      border-color: #595f68;
+      background: rgba(35, 39, 44, 0.96);
+    }
+    body.dark-theme .about-pillar h3 {
+      color: #eee7db;
+    }
+    body.dark-theme .about-badge {
+      background: linear-gradient(145deg, #2d3035, #22252a);
+      border-color: #454b53;
+      color: #e9dfce;
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.08), 0 8px 12px -10px rgba(0, 0, 0, 0.95);
+    }
+    body.dark-theme .about-orb {
+      border-color: #5a4b39;
+      background:
+        radial-gradient(circle at 28% 28%, rgba(255, 255, 255, 0.58), rgba(255, 255, 255, 0) 34%),
+        linear-gradient(145deg, #8f7759, #524130);
     }
 
     /* Product image lightbox */
@@ -1245,6 +1486,7 @@
     </div>
     <nav class="nav-links" aria-label="Primary">
       <a href="#">Home</a>
+      <a href="#about">About</a>
       <button class="theme-toggle" id="themeToggleBtn" type="button" aria-label="Toggle dark mode">
         <i class="fas fa-moon"></i>
       </button>
@@ -1262,6 +1504,44 @@
     <div class="hero-photo-frame">
       <img class="hero-main-photo" id="heroMainPhoto" src="assets/hero-main.png" alt="Bottega featured jacket" data-slides="assets/hero-main.png,assets/hero-main-2.png,assets/hero-main-3.png,assets/hero-main-4.png,assets/hero-main-5.png,assets/hero-main-6.png,assets/hero-main-7.png">
       <img class="hero-rose-frame" src="assets/rose-frame.png" alt="Rose frame">
+    </div>
+  </div>
+</section>
+
+<section class="about-section" id="about" aria-label="About Bottega Atelier">
+  <div class="about-card">
+    <div class="about-main">
+      <span class="about-kicker"><i class="fas fa-gem" aria-hidden="true"></i> About Bottega</span>
+      <h2 class="about-title">Luxury staples built for modern icons.</h2>
+      <p class="about-description">
+        Bottega Atelier is a curated fashion destination focused on statement clothing and rare sneakers for people who lead with confidence.
+        We choose every piece for design impact, premium finish, and everyday wearability so your wardrobe always looks intentional.
+      </p>
+      <div class="about-highlights">
+        <div class="about-point"><i class="fas fa-check-circle" aria-hidden="true"></i> Handpicked collections with premium quality focus</div>
+        <div class="about-point"><i class="fas fa-check-circle" aria-hidden="true"></i> Fast support through direct WhatsApp assistance</div>
+        <div class="about-point"><i class="fas fa-check-circle" aria-hidden="true"></i> Smooth quotations, secure checkout, and trusted delivery</div>
+      </div>
+      <div class="about-graphics" aria-hidden="true">
+        <span class="about-badge"><i class="fas fa-layer-group"></i> Curated Layers</span>
+        <span class="about-badge"><i class="fas fa-shield-alt"></i> Trusted Quality</span>
+        <span class="about-orb"></span>
+        <span class="about-orb alt"></span>
+      </div>
+    </div>
+    <div class="about-pillars">
+      <article class="about-pillar">
+        <h3>Our Vision</h3>
+        <p>Elevate local fashion culture through globally inspired pieces and timeless street-luxury styling.</p>
+      </article>
+      <article class="about-pillar">
+        <h3>Our Promise</h3>
+        <p>Every order receives detail-focused care from selection to packaging, so you receive exactly what you expect.</p>
+      </article>
+      <article class="about-pillar">
+        <h3>Our Experience</h3>
+        <p>Clean browsing, rich product galleries, and personal support designed to make premium shopping effortless.</p>
+      </article>
     </div>
   </div>
 </section>
