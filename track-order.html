@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Track Order | Bottega Atelier</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f5f1e8; color: #1f1a15; margin: 0; }
+    .wrap { max-width: 760px; margin: 2rem auto; padding: 1rem; }
+    .card { background: #fffaf2; border: 1px solid #ddcfbc; border-radius: 14px; padding: 1rem; }
+    input, button { border-radius: 999px; border: 1px solid #d8cab7; padding: 0.65rem 0.9rem; font-size: 0.95rem; }
+    input { width: 100%; max-width: 330px; }
+    button { background: #171411; color: #fff; cursor: pointer; margin-left: 0.45rem; }
+    .timeline { margin-top: 1rem; display: grid; gap: 0.45rem; }
+    .step { background: #f6ede1; border: 1px solid #dccdb9; border-radius: 10px; padding: 0.55rem 0.7rem; font-size: 0.9rem; }
+    a { color: #1f1a15; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>Track Your Order</h1>
+      <p>Enter your quotation number (example: #2026-04-17//001).</p>
+      <div>
+        <input id="orderInput" type="text" placeholder="Quotation number">
+        <button id="trackBtn" type="button">Track</button>
+      </div>
+      <div id="result" class="timeline"></div>
+      <p><a href="index.html">Back to shopping</a></p>
+    </div>
+  </div>
+  <script>
+    const ORDER_HISTORY_KEY = 'bottega_orders';
+    const result = document.getElementById('result');
+    document.getElementById('trackBtn').addEventListener('click', () => {
+      const invoice = (document.getElementById('orderInput').value || '').trim();
+      const orders = JSON.parse(localStorage.getItem(ORDER_HISTORY_KEY) || '[]');
+      const found = orders.find((item) => item.invoiceNumber === invoice);
+      if (!found) {
+        result.innerHTML = '<div class="step">Order not found. Please check your quotation number.</div>';
+        return;
+      }
+      result.innerHTML = `
+        <div class="step"><strong>Quotation:</strong> ${found.invoiceNumber}</div>
+        <div class="step"><strong>Date:</strong> ${found.date}</div>
+        <div class="step"><strong>Total:</strong> R${Number(found.total || 0).toFixed(2)}</div>
+        ${(found.status || []).map((s) => `<div class="step">${s}</div>`).join('')}
+      `;
+    });
+  </script>
+</body>
+</html>

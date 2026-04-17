@@ -1,0 +1,21 @@
+{
+  "name": "Bottega Atelier",
+  "short_name": "Bottega",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#121315",
+  "theme_color": "#121315",
+  "description": "Bottega luxury essentials storefront.",
+  "icons": [
+    {
+      "src": "assets/bottega-logo-new.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/bottega-logo-new.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

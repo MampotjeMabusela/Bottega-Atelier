@@ -4,11 +4,37 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="description" content="Bottega luxury essentials storefront with curated fashion and premium footwear.">
+  <meta name="keywords" content="Bottega, luxury fashion, premium clothing, premium shoes, South Africa boutique">
+  <meta name="theme-color" content="#121315">
+  <meta property="og:title" content="Bottega Atelier | Luxury Essentials">
+  <meta property="og:description" content="Curated luxury clothing and footwear with fast support and secure checkout.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/bottega-logo-new.png">
   <title>Bottega | Luxury Essentials</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="assets/bottega-logo-new.png">
   <!-- Google Fonts + Font Awesome Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Store",
+    "name": "Bottega Atelier",
+    "image": "assets/bottega-logo-new.png",
+    "email": "atelierbottega0@gmail.com",
+    "telephone": "+27-66-064-7425",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Sandton",
+      "addressRegion": "Johannesburg",
+      "addressCountry": "ZA"
+    }
+  }
+  </script>
   <style>
     * {
       margin: 0;
@@ -321,6 +347,39 @@
       background: var(--accent-soft);
       transform: translateY(-1px);
     }
+    .filter-tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      align-items: center;
+      justify-content: flex-end;
+    }
+    .filter-input,
+    .filter-select {
+      border: 1px solid #d5cab9;
+      background: #fffaf2;
+      color: #241f18;
+      border-radius: 999px;
+      font-size: 0.84rem;
+      padding: 0.52rem 0.85rem;
+      min-width: 132px;
+    }
+    .filter-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      border: 1px solid #d5cab9;
+      background: #fffaf2;
+      color: #241f18;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      padding: 0.48rem 0.8rem;
+      font-weight: 600;
+    }
+    .filter-range {
+      width: 110px;
+      min-width: 110px;
+    }
     /* product grid */
     .products-section {
       max-width: 1400px;
@@ -416,6 +475,42 @@
       padding: 1.2rem 1.15rem 1.15rem 1.15rem;
       flex: 1;
     }
+    .product-card-actions {
+      margin-top: 0.6rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.5rem;
+      align-items: center;
+    }
+    .quick-view-btn,
+    .wishlist-btn {
+      border: 1px solid #d4c8b8;
+      background: #f7f1e7;
+      color: #2a241d;
+      border-radius: 999px;
+      padding: 0.55rem 0.85rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+    .quick-view-btn:hover,
+    .wishlist-btn:hover {
+      transform: translateY(-1px);
+    }
+    .wishlist-btn.active {
+      background: #191714;
+      color: #f4ebdc;
+      border-color: #191714;
+    }
+    .stock-status {
+      margin-top: 0.55rem;
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: #5d4a34;
+    }
+    .stock-status.low { color: #9b6219; }
+    .stock-status.out { color: #9f3131; }
     .brand-name {
       font-size: 0.7rem;
       text-transform: uppercase;
@@ -625,6 +720,46 @@
       font-weight: 700;
       margin-top: 1rem;
       cursor: pointer;
+    }
+    .cart-trust {
+      margin-top: 0.8rem;
+      border: 1px solid #dacdbd;
+      border-radius: 0.85rem;
+      padding: 0.7rem;
+      font-size: 0.79rem;
+      color: #4d4134;
+      background: #f7f1e6;
+      display: grid;
+      gap: 0.35rem;
+    }
+    .promo-wrap {
+      margin-top: 0.8rem;
+      display: flex;
+      gap: 0.45rem;
+    }
+    .promo-input {
+      flex: 1;
+      border: 1px solid #d4c8b8;
+      border-radius: 999px;
+      padding: 0.55rem 0.85rem;
+      font-size: 0.84rem;
+      background: #fffaf2;
+    }
+    .promo-apply {
+      border: 1px solid #1e1b17;
+      border-radius: 999px;
+      padding: 0.55rem 0.95rem;
+      background: #1e1b17;
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .promo-note {
+      margin-top: 0.45rem;
+      font-size: 0.75rem;
+      color: #6b5c4a;
+      min-height: 1rem;
     }
     .empty-cart-msg {
       text-align: center;
@@ -910,6 +1045,37 @@
       font-size: 0.86rem;
       letter-spacing: 0.2px;
     }
+    .utility-section {
+      max-width: 1400px;
+      margin: 2rem auto 0;
+      padding: 0 2rem;
+    }
+    .utility-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.5rem, 2.5vw, 2.1rem);
+      margin-bottom: 0.75rem;
+      color: #1d1711;
+    }
+    .utility-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+    .utility-card {
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.8), rgba(244, 235, 224, 0.7));
+      border: 1px solid #d8ccbb;
+      border-radius: 1rem;
+      padding: 0.9rem;
+    }
+    .utility-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+      color: #1e1914;
+    }
+    .utility-card p {
+      font-size: 0.86rem;
+      color: #554a3f;
+    }
     .legal-links {
       margin-top: 0.7rem;
       display: flex;
@@ -1057,6 +1223,7 @@
       .hero,
       .filter-bar,
       .about-section,
+      .utility-section,
       .products-section,
       .testimonials-section {
         margin-left: 1.25rem;
@@ -1098,6 +1265,9 @@
         flex-direction: column;
         align-items: stretch;
       }
+      .filter-tools {
+        justify-content: flex-start;
+      }
       .product-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 1.1rem;
@@ -1132,6 +1302,7 @@
       .hero,
       .filter-bar,
       .about-section,
+      .utility-section,
       .products-section,
       .testimonials-section {
         margin-left: 0.75rem;
@@ -1272,6 +1443,13 @@
       color: #e7e0d4;
       border-color: #3b4048;
     }
+    body.dark-theme .filter-input,
+    body.dark-theme .filter-select,
+    body.dark-theme .filter-toggle {
+      background: #262a2f;
+      border-color: #3d434b;
+      color: #ece2d3;
+    }
     body.dark-theme .filter-btn.active {
       background: #e6ddce;
       color: #121314;
@@ -1320,6 +1498,61 @@
     }
     body.dark-theme .developer-credit {
       color: #b9ad9d;
+    }
+    body.dark-theme .quick-view-btn,
+    body.dark-theme .wishlist-btn {
+      background: #2a2d32;
+      border-color: #40454d;
+      color: #e6dccd;
+    }
+    body.dark-theme .wishlist-btn.active {
+      background: #e8dece;
+      color: #171411;
+      border-color: #e8dece;
+    }
+    body.dark-theme .cart-trust {
+      background: #272b30;
+      border-color: #3f444c;
+      color: #c2b8aa;
+    }
+    body.dark-theme .promo-input {
+      background: #262a2f;
+      border-color: #3d434b;
+      color: #ece2d3;
+    }
+    body.dark-theme .promo-apply {
+      background: #ddd3c4;
+      color: #15120f;
+      border-color: #ddd3c4;
+    }
+    body.dark-theme .utility-title,
+    body.dark-theme .quick-view-close {
+      color: #ece6dd;
+    }
+    body.dark-theme .utility-card {
+      background: linear-gradient(145deg, #1d1f23, #25292e);
+      border-color: #363b42;
+    }
+    body.dark-theme .utility-card h3 {
+      color: #ece6dd;
+    }
+    body.dark-theme .utility-card p {
+      color: #b7ae9f;
+    }
+    body.dark-theme .sticky-checkout {
+      background: color-mix(in srgb, #1d2024 92%, transparent);
+      border-color: #3d434b;
+    }
+    body.dark-theme .sticky-checkout-total {
+      color: #ece2d3;
+    }
+    body.dark-theme .quick-view-card {
+      background: #23262b;
+      border-color: #3d434b;
+    }
+    body.dark-theme .quick-view-img {
+      background: #2b2f34;
+      border-color: #3e434a;
     }
     body.dark-theme .testimonials-title,
     body.dark-theme .about-title,
@@ -1491,7 +1724,86 @@
       min-width: 64px;
       text-align: center;
     }
+    .quick-view-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(12, 11, 10, 0.72);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      z-index: 280;
+    }
+    .quick-view-overlay.open { display: flex; }
+    .quick-view-card {
+      width: min(720px, 100%);
+      background: #fbf6ee;
+      border: 1px solid #d8ccbc;
+      border-radius: 1rem;
+      padding: 1rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.9rem;
+      position: relative;
+    }
+    .quick-view-close {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.6rem;
+      border: none;
+      background: transparent;
+      font-size: 1.4rem;
+      cursor: pointer;
+      color: #261f18;
+    }
+    .quick-view-img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      border-radius: 0.85rem;
+      border: 1px solid #dbcfbf;
+      background: #f0e9de;
+    }
+    .sticky-checkout {
+      position: fixed;
+      left: 0.75rem;
+      right: 0.75rem;
+      bottom: 0.75rem;
+      border: 1px solid #d8ccbc;
+      background: color-mix(in srgb, #f8f1e6 92%, transparent);
+      -webkit-backdrop-filter: blur(9px);
+      backdrop-filter: blur(9px);
+      border-radius: 999px;
+      padding: 0.45rem 0.55rem;
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      z-index: 140;
+      box-shadow: 0 14px 26px -20px rgba(0, 0, 0, 0.7);
+    }
+    .sticky-checkout button {
+      border: none;
+      background: #171411;
+      color: #fff;
+      border-radius: 999px;
+      padding: 0.55rem 0.9rem;
+      font-weight: 700;
+      font-size: 0.8rem;
+      cursor: pointer;
+    }
+    .sticky-checkout-total {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #2a241e;
+    }
     @media (max-width: 560px) {
+      .sticky-checkout {
+        display: flex;
+      }
+      .quick-view-card {
+        grid-template-columns: 1fr;
+      }
       .lightbox-body {
         grid-template-columns: 48px 1fr 48px;
       }
@@ -1577,12 +1889,51 @@
     <button class="filter-btn active" data-filter="all">All Products</button>
     <button class="filter-btn" data-filter="clothing">Clothing</button>
     <button class="filter-btn" data-filter="shoes">Shoes</button>
+    <button class="filter-btn" data-filter="wishlist">Wishlist</button>
   </div>
-  <div><i class="fas fa-tag"></i> curated luxury • secure delivery</div>
+  <div class="filter-tools">
+    <input id="searchInput" class="filter-input" type="search" placeholder="Search brand or product">
+    <select id="sortSelect" class="filter-select" aria-label="Sort products">
+      <option value="featured">Sort: Featured</option>
+      <option value="price-asc">Price: Low to High</option>
+      <option value="price-desc">Price: High to Low</option>
+      <option value="name-asc">Name: A-Z</option>
+    </select>
+    <input id="minPriceInput" class="filter-input filter-range" type="number" min="0" placeholder="Min R">
+    <input id="maxPriceInput" class="filter-input filter-range" type="number" min="0" placeholder="Max R">
+    <select id="sizeFilterSelect" class="filter-select" aria-label="Filter by size">
+      <option value="">All Sizes</option>
+      <option value="XS">XS</option>
+      <option value="S">S</option>
+      <option value="M">M</option>
+      <option value="L">L</option>
+      <option value="XL">XL</option>
+      <option value="US 7">US 7</option>
+      <option value="US 8">US 8</option>
+      <option value="US 9">US 9</option>
+      <option value="US 10">US 10</option>
+      <option value="US 11">US 11</option>
+    </select>
+    <label class="filter-toggle"><input id="stockOnlyToggle" type="checkbox"> In Stock</label>
+  </div>
 </div>
 
 <section class="products-section">
   <div class="product-grid" id="productGrid" aria-live="polite"></div>
+</section>
+
+<section class="utility-section" aria-label="Recently viewed products">
+  <h2 class="utility-title">Recently Viewed</h2>
+  <div id="recentlyViewedGrid" class="utility-grid">
+    <article class="utility-card"><h3>Nothing yet</h3><p>Open product images to build your recently viewed list.</p></article>
+  </div>
+</section>
+
+<section class="utility-section" aria-label="Recommended products">
+  <h2 class="utility-title">Recommended For You</h2>
+  <div id="relatedProductsGrid" class="utility-grid">
+    <article class="utility-card"><h3>Recommendations</h3><p>We’ll suggest products as you browse and add items to cart.</p></article>
+  </div>
 </section>
 
 <section class="watch-feature-section" aria-label="Featured Watch">
@@ -1627,6 +1978,7 @@
   <div class="legal-links">
     <a href="privacy-policy.html">Privacy Policy</a>
     <a href="terms-and-conditions.html">Terms & Conditions</a>
+    <a href="track-order.html">Track Order</a>
   </div>
   <div class="whatsapp-contact">
     <a
@@ -1697,9 +2049,23 @@
     <div class="empty-cart-msg">Your cart is empty</div>
   </div>
   <div class="cart-total" id="cartTotalPrice">Total: R0</div>
+  <div class="promo-wrap">
+    <input id="promoCodeInput" class="promo-input" type="text" placeholder="Promo code (BOTTEGA10)">
+    <button id="applyPromoBtn" class="promo-apply" type="button">Apply</button>
+  </div>
+  <div id="promoNote" class="promo-note"></div>
+  <div class="cart-trust">
+    <div><i class="fas fa-lock" aria-hidden="true"></i> Secure checkout experience</div>
+    <div><i class="fas fa-truck" aria-hidden="true"></i> Nationwide delivery updates</div>
+    <div><i class="fas fa-rotate-left" aria-hidden="true"></i> Quick support for exchanges</div>
+  </div>
   <button class="checkout-btn" id="checkoutBtn" type="button">Proceed to Checkout →</button>
 </aside>
 <div id="toastMsg" class="toast-msg"></div>
+<div class="sticky-checkout" id="stickyCheckoutBar">
+  <div class="sticky-checkout-total" id="stickyCheckoutTotal">Cart: R0.00</div>
+  <button id="stickyCheckoutBtn" type="button">Checkout</button>
+</div>
 
 <!-- Product Image Lightbox (product photos only) -->
 <div class="lightbox-overlay" id="lightboxOverlay" aria-hidden="true">
@@ -1723,6 +2089,27 @@
       <button class="lightbox-zoom-btn" id="lightboxZoomOutBtn" type="button" aria-label="Zoom out">−</button>
       <div class="lightbox-zoom-label" id="lightboxZoomLabel">100%</div>
       <button class="lightbox-zoom-btn" id="lightboxZoomInBtn" type="button" aria-label="Zoom in">+</button>
+    </div>
+  </div>
+</div>
+
+<div class="quick-view-overlay" id="quickViewOverlay" aria-hidden="true">
+  <div class="quick-view-card" role="dialog" aria-modal="true" aria-label="Quick product view">
+    <button class="quick-view-close" id="quickViewCloseBtn" type="button" aria-label="Close quick view">&times;</button>
+    <img class="quick-view-img" id="quickViewImg" src="" alt="Quick view product image">
+    <div>
+      <div class="brand-name" id="quickViewBrand">Brand</div>
+      <h3 class="product-title" id="quickViewTitle">Product title</h3>
+      <div class="price" id="quickViewPrice">R0.00 <span>ZAR</span></div>
+      <div class="size-selector">
+        <label><i class="fas fa-ruler-combined"></i> Size:</label>
+        <select class="size-dropdown" id="quickViewSizeSelect"></select>
+      </div>
+      <div class="product-card-actions">
+        <button class="add-to-cart" id="quickViewAddBtn" type="button"><i class="fas fa-cart-plus"></i> Add to cart</button>
+        <button class="wishlist-btn" id="quickViewWishlistBtn" type="button"><i class="fas fa-heart"></i></button>
+      </div>
+      <div class="stock-status" id="quickViewStockStatus"></div>
     </div>
   </div>
 </div>
@@ -1952,6 +2339,11 @@
 
   // ---------- GLOBALS ----------
   const STORAGE_KEY = 'bottega_cart';
+  const WISHLIST_KEY = 'bottega_wishlist';
+  const RECENTLY_VIEWED_KEY = 'bottega_recently_viewed';
+  const PROMO_KEY = 'bottega_promo_code';
+  const ANALYTICS_KEY = 'bottega_analytics';
+  const ORDER_HISTORY_KEY = 'bottega_orders';
   const WHATSAPP_BUSINESS_NUMBER = '27660647425';
   const BUSINESS_DETAILS = {
     name: 'BOTTEGA ATELIER',
@@ -1965,12 +2357,193 @@
     accountNumber: '1053663650'
   };
   let cart = []; // each item: { id, size, quantity, name, price, brand, image }
+  let catalogProducts = [...productsData];
+  let wishlist = [];
+  let recentlyViewed = [];
+  let activePromoCode = '';
   let currentFilter = "all";
+  const productSearchState = {
+    query: '',
+    sort: 'featured',
+    minPrice: null,
+    maxPrice: null,
+    size: '',
+    inStockOnly: false,
+  };
+  const promoConfig = {
+    BOTTEGA10: { type: 'percent', value: 0.10, label: '10% off applied' },
+    FREESHIP: { type: 'fixed', value: 150, label: 'R150 delivery discount applied' },
+  };
+  const stockMap = {};
+  const quickViewState = { productId: null };
   let toastTimerId;
 
   function formatRand(value, includeCents = false) {
     const amount = includeCents ? Number(value).toFixed(2) : Number(value).toLocaleString('en-ZA');
     return `R${amount}`;
+  }
+
+  function trackEvent(eventName, payload = {}) {
+    const analytics = JSON.parse(localStorage.getItem(ANALYTICS_KEY) || '{}');
+    analytics[eventName] = (analytics[eventName] || 0) + 1;
+    analytics.lastEventAt = new Date().toISOString();
+    analytics.lastPayload = payload;
+    localStorage.setItem(ANALYTICS_KEY, JSON.stringify(analytics));
+  }
+
+  function ensureStockForProduct(product) {
+    if (!product || stockMap[product.id]) return;
+    const bySize = {};
+    (product.sizes || []).forEach((size) => {
+      bySize[size] = 5;
+    });
+    stockMap[product.id] = bySize;
+  }
+
+  function getStockForSize(productId, size) {
+    return stockMap[productId]?.[size] ?? 0;
+  }
+
+  function getStockLabel(stockQty) {
+    if (stockQty <= 0) return { text: 'Out of stock', className: 'out' };
+    if (stockQty <= 2) return { text: `Low stock (${stockQty} left)`, className: 'low' };
+    return { text: `In stock (${stockQty} available)`, className: '' };
+  }
+
+  function getCatalogById(productId) {
+    return catalogProducts.find((p) => p.id === productId);
+  }
+
+  function saveWishlist() {
+    localStorage.setItem(WISHLIST_KEY, JSON.stringify(wishlist));
+  }
+
+  function loadWishlist() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(WISHLIST_KEY) || '[]');
+      wishlist = Array.isArray(saved) ? saved : [];
+    } catch {
+      wishlist = [];
+    }
+  }
+
+  function loadRecentlyViewed() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(RECENTLY_VIEWED_KEY) || '[]');
+      recentlyViewed = Array.isArray(saved) ? saved : [];
+    } catch {
+      recentlyViewed = [];
+    }
+  }
+
+  function saveRecentlyViewed() {
+    localStorage.setItem(RECENTLY_VIEWED_KEY, JSON.stringify(recentlyViewed));
+  }
+
+  function markRecentlyViewed(productId) {
+    recentlyViewed = [productId, ...recentlyViewed.filter((id) => id !== productId)].slice(0, 8);
+    saveRecentlyViewed();
+    renderRecentlyViewed();
+    renderRelatedProducts();
+  }
+
+  function getPromoDiscount(total) {
+    if (!activePromoCode || !promoConfig[activePromoCode]) return 0;
+    const rule = promoConfig[activePromoCode];
+    if (rule.type === 'percent') return total * rule.value;
+    if (rule.type === 'fixed') return Math.min(rule.value, total);
+    return 0;
+  }
+
+  function renderRecentlyViewed() {
+    const container = document.getElementById('recentlyViewedGrid');
+    if (!container) return;
+    const items = recentlyViewed
+      .map((id) => getCatalogById(id))
+      .filter(Boolean)
+      .slice(0, 4);
+    if (!items.length) {
+      container.innerHTML = '<article class="utility-card"><h3>Nothing yet</h3><p>Open product images to build your recently viewed list.</p></article>';
+      return;
+    }
+    container.innerHTML = items.map((item) => `
+      <article class="utility-card">
+        <h3>${item.brand}</h3>
+        <p>${item.name}</p>
+        <p><strong>${formatRand(item.price, true)}</strong></p>
+      </article>
+    `).join('');
+  }
+
+  function renderRelatedProducts() {
+    const container = document.getElementById('relatedProductsGrid');
+    if (!container) return;
+    const basisId = recentlyViewed[0] || cart[0]?.id;
+    const basisProduct = getCatalogById(basisId);
+    let picks = [];
+    if (basisProduct) {
+      picks = catalogProducts
+        .filter((p) => p.id !== basisProduct.id && p.category === basisProduct.category)
+        .sort((a, b) => Math.abs(a.price - basisProduct.price) - Math.abs(b.price - basisProduct.price))
+        .slice(0, 4);
+    }
+    if (!picks.length) picks = catalogProducts.slice(0, 4);
+    container.innerHTML = picks.map((item) => `
+      <article class="utility-card">
+        <h3>${item.brand}</h3>
+        <p>${item.name}</p>
+        <p><strong>${formatRand(item.price, true)}</strong></p>
+      </article>
+    `).join('');
+  }
+
+  function openQuickView(productId) {
+    const product = getCatalogById(productId);
+    if (!product) return;
+    markRecentlyViewed(productId);
+    trackEvent('quick_view_open', { productId });
+    const overlay = document.getElementById('quickViewOverlay');
+    const image = document.getElementById('quickViewImg');
+    const brand = document.getElementById('quickViewBrand');
+    const title = document.getElementById('quickViewTitle');
+    const price = document.getElementById('quickViewPrice');
+    const sizeSelect = document.getElementById('quickViewSizeSelect');
+    const stockStatus = document.getElementById('quickViewStockStatus');
+    const wishlistBtn = document.getElementById('quickViewWishlistBtn');
+    ensureStockForProduct(product);
+    quickViewState.productId = product.id;
+    if (image) image.src = (product.images && product.images[0]) || product.image;
+    if (brand) brand.textContent = product.brand;
+    if (title) title.textContent = product.name;
+    if (price) price.innerHTML = `${formatRand(product.price, true)} <span>ZAR</span>`;
+    if (sizeSelect) {
+      sizeSelect.innerHTML = (product.sizes || []).map((size) => `<option value="${size}">${size}</option>`).join('');
+      const selected = sizeSelect.value;
+      const stockInfo = getStockLabel(getStockForSize(product.id, selected));
+      if (stockStatus) {
+        stockStatus.className = `stock-status ${stockInfo.className}`;
+        stockStatus.textContent = stockInfo.text;
+      }
+      sizeSelect.onchange = () => {
+        const nextStock = getStockLabel(getStockForSize(product.id, sizeSelect.value));
+        if (stockStatus) {
+          stockStatus.className = `stock-status ${nextStock.className}`;
+          stockStatus.textContent = nextStock.text;
+        }
+      };
+    }
+    if (wishlistBtn) {
+      wishlistBtn.classList.toggle('active', wishlist.includes(product.id));
+    }
+    overlay?.classList.add('open');
+    overlay?.setAttribute('aria-hidden', 'false');
+  }
+
+  function closeQuickView() {
+    const overlay = document.getElementById('quickViewOverlay');
+    overlay?.classList.remove('open');
+    overlay?.setAttribute('aria-hidden', 'true');
+    quickViewState.productId = null;
   }
 
   // Helper: show toast
@@ -1985,6 +2558,7 @@
   function persistCart() {
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(cart));
+      localStorage.setItem('bottega_cart_updated_at', String(Date.now()));
     } catch (error) {
       console.warn('Failed to persist cart in localStorage.', error);
       showToast('Unable to save cart on this device');
@@ -2064,6 +2638,23 @@
     }
   }
 
+  async function loadProductsSource() {
+    try {
+      const response = await fetch('products.json', { cache: 'no-store' });
+      if (!response.ok) throw new Error('products.json unavailable');
+      const data = await response.json();
+      if (!Array.isArray(data) || data.length === 0) return;
+      catalogProducts = data.map((item) => ({
+        ...item,
+        images: Array.isArray(item.images) && item.images.length ? item.images : [item.image],
+      }));
+    } catch (error) {
+      catalogProducts = [...productsData];
+      console.warn('Using inline product data fallback.', error);
+    }
+    catalogProducts.forEach((product) => ensureStockForProduct(product));
+  }
+
   async function generateQuotationPdfBlob(invoiceNumber) {
     if (!jsPDF) {
       throw new Error('PDF library failed to load.');
@@ -2117,10 +2708,10 @@
     doc.setFont('helvetica', 'normal');
     doc.setFontSize(9.7);
 
-    let total = 0;
+    let subtotal = 0;
     cart.forEach((item) => {
       const lineTotal = item.price * item.quantity;
-      total += lineTotal;
+      subtotal += lineTotal;
       const itemLabel = `${item.brand} ${item.name}`;
       const wrappedLabel = doc.splitTextToSize(itemLabel, 92);
       const rowHeight = Math.max(6, wrappedLabel.length * 4.2);
@@ -2142,6 +2733,14 @@
     cursorY += 8;
     doc.setFont('helvetica', 'bold');
     doc.setFontSize(12);
+    const discount = getPromoDiscount(subtotal);
+    const total = Math.max(0, subtotal - discount);
+    if (discount > 0) {
+      doc.text(`SUBTOTAL: ${formatRand(subtotal, true)}`, pageWidth - margin, cursorY, { align: 'right' });
+      cursorY += 6;
+      doc.text(`DISCOUNT (${activePromoCode}): -${formatRand(discount, true)}`, pageWidth - margin, cursorY, { align: 'right' });
+      cursorY += 6;
+    }
     doc.text(`TOTAL: ${formatRand(total, true)}`, pageWidth - margin, cursorY, { align: 'right' });
     cursorY += 10;
 
@@ -2207,15 +2806,25 @@
       setTimeout(() => URL.revokeObjectURL(blobUrl), 2000);
 
       const shared = await trySharePdfToWhatsApp(pdfFile, invoiceNumber);
-      const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+      const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+      const discount = getPromoDiscount(subtotal);
+      const total = Math.max(0, subtotal - discount);
       if (shared) {
         showToast(`Quotation ${invoiceNumber} downloaded. Choose WhatsApp in the share sheet to attach automatically.`);
-        return;
       }
       const message = encodeURIComponent(
         `Hi Bottega, a purchase has been made and I am proceeding to checkout.\nQuotation: ${invoiceNumber}\nTotal: ${formatRand(total, true)}\nI have downloaded the quotation PDF and will attach it here.`
       );
       window.open(`https://wa.me/${WHATSAPP_BUSINESS_NUMBER}?text=${message}`, '_blank', 'noopener');
+      const orderHistory = JSON.parse(localStorage.getItem(ORDER_HISTORY_KEY) || '[]');
+      orderHistory.unshift({
+        invoiceNumber,
+        total,
+        date: getTodayStamp(),
+        status: ['Order received', 'Quotation created', 'Awaiting payment'],
+      });
+      localStorage.setItem(ORDER_HISTORY_KEY, JSON.stringify(orderHistory.slice(0, 40)));
+      trackEvent('checkout_started', { invoiceNumber, total });
 
       showToast(`Quotation ${invoiceNumber} created and downloaded`);
     } catch (error) {
@@ -2229,6 +2838,7 @@
     const cartContainer = document.getElementById('cartItemsContainer');
     const cartCountSpan = document.getElementById('cartCount');
     const totalSpan = document.getElementById('cartTotalPrice');
+    const stickyTotal = document.getElementById('stickyCheckoutTotal');
     let total = 0;
     let itemCount = 0;
     
@@ -2236,6 +2846,7 @@
       cartContainer.innerHTML = '<div class="empty-cart-msg"><i class="fas fa-store"></i> Your cart is empty</div>';
       cartCountSpan.innerText = '0';
       totalSpan.innerText = 'Total: R0';
+      if (stickyTotal) stickyTotal.innerText = 'Cart: R0.00';
       return;
     }
     
@@ -2265,8 +2876,13 @@
     });
     cartContainer.appendChild(fragment);
 
+    const discount = getPromoDiscount(total);
+    const payable = Math.max(0, total - discount);
     cartCountSpan.innerText = itemCount;
-    totalSpan.innerText = `Total: ${formatRand(total, true)}`;
+    totalSpan.innerText = discount > 0
+      ? `Total: ${formatRand(payable, true)} (Saved ${formatRand(discount, true)})`
+      : `Total: ${formatRand(payable, true)}`;
+    if (stickyTotal) stickyTotal.innerText = `Cart: ${formatRand(payable, true)}`;
   }
   
   function loadCartFromLocal() {
@@ -2283,15 +2899,24 @@
   
   // add to cart logic
   function addToCart(productId, selectedSize) {
-    const product = productsData.find(p => p.id === productId);
+    const product = getCatalogById(productId);
     if (!product) return;
     if (!selectedSize) {
       showToast("Please select a size");
       return;
     }
+    const stockQty = getStockForSize(productId, selectedSize);
+    if (stockQty <= 0) {
+      showToast("Selected size is out of stock");
+      return;
+    }
     // check if product with same id and size exists
     const existingIndex = cart.findIndex(item => item.id === productId && item.size === selectedSize);
     if (existingIndex !== -1) {
+      if (cart[existingIndex].quantity >= stockQty) {
+        showToast("No more stock available for this size");
+        return;
+      }
       cart[existingIndex].quantity += 1;
     } else {
       cart.push({
@@ -2306,6 +2931,8 @@
     }
     updateCartUI();
     persistCart();
+    trackEvent('add_to_cart', { productId, selectedSize });
+    renderRelatedProducts();
     showToast(`✓ ${product.brand} ${product.name} (${selectedSize}) added`);
   }
 
@@ -2336,29 +2963,66 @@
 
     updateCartUI();
     persistCart();
+    trackEvent('add_to_cart', { productId: watchProduct.id, selectedSize: watchProduct.size });
+    renderRelatedProducts();
     showToast(`✓ ${watchProduct.brand} watch added`);
   }
   
   // render products based on currentFilter (clothing/shoes/all)
   function renderProducts() {
     const grid = document.getElementById('productGrid');
-    let filtered = [...productsData];
+    let filtered = [...catalogProducts];
     if (currentFilter === 'clothing') {
-      filtered = productsData.filter(p => p.category === 'clothing');
+      filtered = filtered.filter(p => p.category === 'clothing');
     } else if (currentFilter === 'shoes') {
-      filtered = productsData.filter(p => p.category === 'shoes');
+      filtered = filtered.filter(p => p.category === 'shoes');
+    } else if (currentFilter === 'wishlist') {
+      filtered = filtered.filter((p) => wishlist.includes(p.id));
     }
+
+    if (productSearchState.query) {
+      const q = productSearchState.query.toLowerCase();
+      filtered = filtered.filter((p) => `${p.brand} ${p.name}`.toLowerCase().includes(q));
+    }
+    if (Number.isFinite(productSearchState.minPrice)) {
+      filtered = filtered.filter((p) => p.price >= productSearchState.minPrice);
+    }
+    if (Number.isFinite(productSearchState.maxPrice)) {
+      filtered = filtered.filter((p) => p.price <= productSearchState.maxPrice);
+    }
+    if (productSearchState.size) {
+      filtered = filtered.filter((p) => (p.sizes || []).includes(productSearchState.size));
+    }
+    if (productSearchState.inStockOnly) {
+      filtered = filtered.filter((p) => {
+        ensureStockForProduct(p);
+        return Object.values(stockMap[p.id] || {}).some((qty) => qty > 0);
+      });
+    }
+    if (productSearchState.sort === 'price-asc') {
+      filtered.sort((a, b) => a.price - b.price);
+    } else if (productSearchState.sort === 'price-desc') {
+      filtered.sort((a, b) => b.price - a.price);
+    } else if (productSearchState.sort === 'name-asc') {
+      filtered.sort((a, b) => a.name.localeCompare(b.name));
+    }
+
     if (filtered.length === 0) {
-      grid.innerHTML = '<div style="grid-column:1/-1; text-align:center; padding:3rem;">No products in this category</div>';
+      grid.innerHTML = '<div style="grid-column:1/-1; text-align:center; padding:3rem;">No products found for current filters</div>';
       return;
     }
     grid.innerHTML = '';
     const fragment = document.createDocumentFragment();
     filtered.forEach(product => {
+      ensureStockForProduct(product);
       const card = document.createElement('div');
       card.className = 'product-card';
       // create size dropdown dynamically using product sizes array
       const sizeOptions = product.sizes.map(sz => `<option value="${sz}">${sz}</option>`).join('');
+      const firstSize = product.sizes[0];
+      const firstSizeStock = getStockForSize(product.id, firstSize);
+      const stockInfo = getStockLabel(firstSizeStock);
+      const isWishlisted = wishlist.includes(product.id);
       const galleryImages = Array.isArray(product.images) && product.images.length ? product.images : [product.image];
       const imageMarkup = galleryImages.length > 1
         ? `
@@ -2385,6 +3049,13 @@
               ${sizeOptions}
             </select>
           </div>
+          <div class="stock-status ${stockInfo.className}" data-stock-for="${product.id}">${stockInfo.text}</div>
+          <div class="product-card-actions">
+            <button class="quick-view-btn" data-quick-id="${product.id}" type="button"><i class="fas fa-eye"></i> Quick view</button>
+            <button class="wishlist-btn ${isWishlisted ? 'active' : ''}" data-wishlist-id="${product.id}" type="button" aria-label="Toggle wishlist">
+              <i class="fas fa-heart"></i>
+            </button>
+          </div>
           <button class="add-to-cart" data-id="${product.id}"><i class="fas fa-cart-plus"></i> Add to cart</button>
         </div>
       `;
@@ -2404,6 +3075,41 @@
           if(fallbackSelect) selectedSize = fallbackSelect.value;
         }
         addToCart(prodId, selectedSize);
+      });
+    });
+
+    document.querySelectorAll('.size-dropdown').forEach((selectElem) => {
+      selectElem.addEventListener('change', () => {
+        const productId = Number.parseInt(selectElem.getAttribute('data-id') || '', 10);
+        if (!Number.isInteger(productId)) return;
+        const stockInfoElem = document.querySelector(`[data-stock-for="${productId}"]`);
+        const stockInfo = getStockLabel(getStockForSize(productId, selectElem.value));
+        if (stockInfoElem) {
+          stockInfoElem.className = `stock-status ${stockInfo.className}`;
+          stockInfoElem.textContent = stockInfo.text;
+        }
+      });
+    });
+
+    document.querySelectorAll('[data-wishlist-id]').forEach((button) => {
+      button.addEventListener('click', () => {
+        const productId = Number.parseInt(button.getAttribute('data-wishlist-id') || '', 10);
+        if (!Number.isInteger(productId)) return;
+        wishlist = wishlist.includes(productId)
+          ? wishlist.filter((id) => id !== productId)
+          : [...wishlist, productId];
+        saveWishlist();
+        trackEvent('wishlist_toggle', { productId });
+        renderProducts();
+        renderRelatedProducts();
+      });
+    });
+
+    document.querySelectorAll('[data-quick-id]').forEach((button) => {
+      button.addEventListener('click', () => {
+        const productId = Number.parseInt(button.getAttribute('data-quick-id') || '', 10);
+        if (!Number.isInteger(productId)) return;
+        openQuickView(productId);
       });
     });
 
@@ -2447,7 +3153,7 @@
   }
 
   function openProductLightbox(productId, startIndex) {
-    const product = productsData.find((p) => p.id === productId);
+    const product = getCatalogById(productId);
     if (!product) return;
     lightboxState.images = Array.isArray(product.images) && product.images.length ? product.images : [product.image];
     lightboxState.title = `${product.brand} ${product.name}`;
@@ -2524,6 +3230,8 @@
       const productId = Number.parseInt(imgEl.getAttribute('data-product-id') || '', 10);
       const imageIndex = Number.parseInt(imgEl.getAttribute('data-image-index') || '0', 10);
       if (!Number.isInteger(productId)) return;
+      markRecentlyViewed(productId);
+      trackEvent('product_view', { productId });
       openProductLightbox(productId, Number.isInteger(imageIndex) ? imageIndex : 0);
     });
   }
@@ -2531,14 +3239,47 @@
   // filter active UI + rerender
   function initFilters() {
     const filterBtns = document.querySelectorAll('.filter-btn');
+    const searchInput = document.getElementById('searchInput');
+    const sortSelect = document.getElementById('sortSelect');
+    const minPriceInput = document.getElementById('minPriceInput');
+    const maxPriceInput = document.getElementById('maxPriceInput');
+    const sizeFilterSelect = document.getElementById('sizeFilterSelect');
+    const stockOnlyToggle = document.getElementById('stockOnlyToggle');
     filterBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         filterBtns.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         const filterValue = btn.getAttribute('data-filter');
         currentFilter = filterValue;
+        trackEvent('filter_click', { filterValue });
         renderProducts();
       });
+    });
+    searchInput?.addEventListener('input', () => {
+      productSearchState.query = searchInput.value.trim();
+      renderProducts();
+    });
+    sortSelect?.addEventListener('change', () => {
+      productSearchState.sort = sortSelect.value;
+      renderProducts();
+    });
+    minPriceInput?.addEventListener('input', () => {
+      const value = Number(minPriceInput.value);
+      productSearchState.minPrice = Number.isFinite(value) && value > 0 ? value : null;
+      renderProducts();
+    });
+    maxPriceInput?.addEventListener('input', () => {
+      const value = Number(maxPriceInput.value);
+      productSearchState.maxPrice = Number.isFinite(value) && value > 0 ? value : null;
+      renderProducts();
+    });
+    sizeFilterSelect?.addEventListener('change', () => {
+      productSearchState.size = sizeFilterSelect.value;
+      renderProducts();
+    });
+    stockOnlyToggle?.addEventListener('change', () => {
+      productSearchState.inStockOnly = stockOnlyToggle.checked;
+      renderProducts();
     });
   }
   
@@ -2587,6 +3328,13 @@
         const delta = Number.parseInt(qtyButton.getAttribute('data-delta'), 10);
         if (Number.isInteger(idx) && Number.isInteger(delta) && cart[idx]) {
           const nextQuantity = cart[idx].quantity + delta;
+          if (delta > 0) {
+            const sizeStock = getStockForSize(cart[idx].id, cart[idx].size);
+            if (nextQuantity > sizeStock) {
+              showToast('No more stock available for this size');
+              return;
+            }
+          }
           if (nextQuantity <= 0) {
             cart.splice(idx, 1);
           } else {
@@ -2679,11 +3427,83 @@
       addFeaturedWatchToCart();
     });
   }
+
+  function initPromoCode() {
+    const input = document.getElementById('promoCodeInput');
+    const applyBtn = document.getElementById('applyPromoBtn');
+    const note = document.getElementById('promoNote');
+    activePromoCode = localStorage.getItem(PROMO_KEY) || '';
+    if (input && activePromoCode) input.value = activePromoCode;
+    if (activePromoCode && promoConfig[activePromoCode] && note) {
+      note.textContent = promoConfig[activePromoCode].label;
+    }
+    applyBtn?.addEventListener('click', () => {
+      const code = (input?.value || '').trim().toUpperCase();
+      if (!promoConfig[code]) {
+        activePromoCode = '';
+        localStorage.removeItem(PROMO_KEY);
+        if (note) note.textContent = 'Invalid promo code';
+        updateCartUI();
+        return;
+      }
+      activePromoCode = code;
+      localStorage.setItem(PROMO_KEY, code);
+      if (note) note.textContent = promoConfig[code].label;
+      trackEvent('promo_applied', { code });
+      updateCartUI();
+    });
+  }
+
+  function initQuickView() {
+    const overlay = document.getElementById('quickViewOverlay');
+    const closeBtn = document.getElementById('quickViewCloseBtn');
+    const addBtn = document.getElementById('quickViewAddBtn');
+    const wishlistBtn = document.getElementById('quickViewWishlistBtn');
+    const sizeSelect = document.getElementById('quickViewSizeSelect');
+    closeBtn?.addEventListener('click', closeQuickView);
+    overlay?.addEventListener('click', (event) => {
+      if (event.target === overlay) closeQuickView();
+    });
+    addBtn?.addEventListener('click', () => {
+      if (!quickViewState.productId) return;
+      addToCart(quickViewState.productId, sizeSelect?.value);
+    });
+    wishlistBtn?.addEventListener('click', () => {
+      if (!quickViewState.productId) return;
+      const id = quickViewState.productId;
+      wishlist = wishlist.includes(id) ? wishlist.filter((item) => item !== id) : [...wishlist, id];
+      saveWishlist();
+      wishlistBtn.classList.toggle('active', wishlist.includes(id));
+      renderProducts();
+      renderRelatedProducts();
+    });
+  }
+
+  function initStickyCheckout() {
+    const stickyBtn = document.getElementById('stickyCheckoutBtn');
+    stickyBtn?.addEventListener('click', async () => {
+      await processCheckoutQuotation();
+    });
+  }
+
+  function initAbandonedCartReminder() {
+    const updatedAt = Number(localStorage.getItem('bottega_cart_updated_at') || '0');
+    if (!updatedAt || cart.length === 0) return;
+    const ageMs = Date.now() - updatedAt;
+    if (ageMs > 1000 * 60 * 30) {
+      showToast('You still have items in your cart waiting for checkout');
+    }
+  }
   
   // initial load, handle images manually replace any missing
-  window.addEventListener('DOMContentLoaded', () => {
+  window.addEventListener('DOMContentLoaded', async () => {
+    await loadProductsSource();
+    loadWishlist();
+    loadRecentlyViewed();
     loadCartFromLocal();
     renderProducts();
+    renderRecentlyViewed();
+    renderRelatedProducts();
     initFilters();
     initCartDrawer();
     initCartEvents();
@@ -2692,8 +3512,17 @@
     initWatchAddToCart();
     initThemeToggle();
     initProductLightbox();
+    initPromoCode();
+    initQuickView();
+    initStickyCheckout();
+    initAbandonedCartReminder();
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js').catch((error) => {
+        console.warn('Service worker registration failed.', error);
+      });
+    }
     // add sample dynamic notice: users can replace image links easily
-    console.log("✅ Website ready — Replace product images via productsData array (image field). Brand, price, sizes, frames all set.");
+    console.log("✅ Website ready — data source, tracking, wishlist, and smart shopping features active.");
   });
 </script>
 </body>
