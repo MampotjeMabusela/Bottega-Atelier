@@ -333,5 +333,25 @@
     "badge": "New drop",
     "newestRank": 19,
     "popularScore": 94
+  },
+  {
+    "id": 20,
+    "brand": "Bottega",
+    "name": "Brown Suede Derby Shoes Thick-Soled Lace-Up Casual Men's Leather Dress Shoes",
+    "category": "shoes",
+    "price": 4000,
+    "sizes": ["US 7", "US 8", "US 9", "US 10", "US 11"],
+    "image": "assets/brown-suede-derby-1.png",
+    "images": [
+      "assets/brown-suede-derby-1.png",
+      "assets/brown-suede-derby-2.png",
+      "assets/brown-suede-derby-3.png"
+    ],
+    "material": "Suede leather upper with thick lug sole and stitched derby paneling.",
+    "fit": "Regular fit with cushioned interior support.",
+    "sizeGuide": "True to size. If between sizes, choose one size up.",
+    "badge": "New drop",
+    "newestRank": 20,
+    "popularScore": 91
   }
 ]
