@@ -353,5 +353,26 @@
     "badge": "New drop",
     "newestRank": 20,
     "popularScore": 91
+  },
+  {
+    "id": 21,
+    "brand": "Bottega",
+    "name": "Brown Winter Shearling Jacket Men Retro Vintage Style Genuine Natural Thick Sheepskin Turn-Down Collar Warm Coat",
+    "category": "clothing",
+    "price": 11000,
+    "sizes": ["XS", "S", "M", "L", "XL"],
+    "image": "assets/brown-shearling-jacket-1.png",
+    "images": [
+      "assets/brown-shearling-jacket-1.png",
+      "assets/brown-shearling-jacket-2.png",
+      "assets/brown-shearling-jacket-3.png",
+      "assets/brown-shearling-jacket-4.png"
+    ],
+    "material": "Genuine natural sheepskin shearling with retro vintage panel construction.",
+    "fit": "Structured regular fit with warm insulated interior.",
+    "sizeGuide": "True to size. Size up for layering over knitwear.",
+    "badge": "New drop",
+    "newestRank": 21,
+    "popularScore": 93
   }
 ]
