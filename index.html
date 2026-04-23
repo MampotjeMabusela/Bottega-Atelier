@@ -306,6 +306,121 @@
       text-transform: uppercase;
       margin-bottom: 1rem;
     }
+    .new-arrival-section {
+      max-width: 1400px;
+      margin: 0 auto 1.2rem;
+      padding: 0 2rem;
+    }
+    .new-arrival-shell {
+      border: 1px solid #cfc0ad;
+      border-radius: 1.2rem;
+      padding: 1rem;
+      background:
+        linear-gradient(130deg, rgba(255, 246, 231, 0.9), rgba(233, 220, 201, 0.8)),
+        repeating-linear-gradient(-45deg, rgba(33, 25, 17, 0.04) 0 8px, rgba(33, 25, 17, 0.01) 8px 16px);
+      box-shadow: 0 22px 38px -32px rgba(20, 13, 7, 0.9);
+    }
+    .new-arrival-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 0.9rem;
+    }
+    .new-arrival-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+      font-weight: 700;
+      color: #1d1711;
+      letter-spacing: 0.5px;
+    }
+    .new-arrival-tag {
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      border: 1px solid #2a2117;
+      color: #2a2117;
+      background: #f2e5d3;
+      padding: 0.3rem 0.6rem;
+      border-radius: 999px;
+    }
+    .new-arrival-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.9rem;
+    }
+    .arrival-card {
+      border: 1px solid #d4c5b2;
+      border-radius: 1rem;
+      overflow: hidden;
+      background: rgba(255, 252, 246, 0.9);
+      position: relative;
+    }
+    .arrival-card::before {
+      content: 'GEN X DROP';
+      position: absolute;
+      top: 0.65rem;
+      right: 0.65rem;
+      font-size: 0.58rem;
+      letter-spacing: 1px;
+      font-weight: 800;
+      color: #f7efe0;
+      background: rgba(17, 14, 10, 0.75);
+      border-radius: 999px;
+      padding: 0.24rem 0.5rem;
+      z-index: 2;
+    }
+    .arrival-gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.4rem;
+      padding: 0.55rem;
+      background: #ece2d4;
+    }
+    .arrival-gallery img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 0.65rem;
+      border: 1px solid #d6c9b8;
+    }
+    .arrival-gallery img.cold-variant {
+      filter: invert(0.08) hue-rotate(185deg) saturate(0.85) brightness(0.95);
+    }
+    .arrival-info {
+      padding: 0.8rem 0.9rem 0.9rem;
+    }
+    .arrival-name {
+      font-size: 0.98rem;
+      font-weight: 800;
+      line-height: 1.35;
+      color: #1f1913;
+      margin-bottom: 0.5rem;
+    }
+    .arrival-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .arrival-price {
+      font-weight: 900;
+      font-size: 1.08rem;
+      color: #18130f;
+    }
+    .arrival-chip {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #37291c;
+      border: 1px solid #c8b59f;
+      background: #f4eadc;
+      border-radius: 999px;
+      padding: 0.24rem 0.5rem;
+      font-weight: 700;
+    }
     /* filter bar */
     .filter-bar {
       max-width: 1400px;
@@ -1223,6 +1338,7 @@
         padding: 0.85rem 1.25rem;
       }
       .hero,
+      .new-arrival-section,
       .filter-bar,
       .about-section,
       .utility-section,
@@ -1249,6 +1365,9 @@
       }
       .hero {
         padding: 1.4rem 1rem;
+      }
+      .new-arrival-grid {
+        grid-template-columns: 1fr;
       }
       .about-card {
         grid-template-columns: 1fr;
@@ -1302,6 +1421,7 @@
         height: 42px;
       }
       .hero,
+      .new-arrival-section,
       .filter-bar,
       .about-section,
       .utility-section,
@@ -1421,6 +1541,7 @@
       color: #f5ecdf;
     }
     body.dark-theme .hero,
+    body.dark-theme .new-arrival-shell,
     body.dark-theme .filter-bar,
     body.dark-theme .product-card,
     body.dark-theme .about-card,
@@ -1433,6 +1554,7 @@
       box-shadow: 0 20px 40px -28px rgba(0, 0, 0, 0.7);
     }
     body.dark-theme .product-img-frame,
+    body.dark-theme .arrival-gallery,
     body.dark-theme .cart-item,
     body.dark-theme .cart-item-img,
     body.dark-theme .size-dropdown,
@@ -1460,6 +1582,31 @@
     body.dark-theme .brand-name {
       background: #2f2a24;
       color: #c9af8d;
+    }
+    body.dark-theme .new-arrival-title,
+    body.dark-theme .arrival-name,
+    body.dark-theme .arrival-price {
+      color: #ece5d8;
+    }
+    body.dark-theme .arrival-card {
+      background: #1f2227;
+      border-color: #3a3f47;
+    }
+    body.dark-theme .arrival-gallery img {
+      border-color: #3f454d;
+    }
+    body.dark-theme .arrival-gallery img.cold-variant {
+      filter: invert(0.06) hue-rotate(185deg) saturate(0.82) brightness(0.92);
+    }
+    body.dark-theme .new-arrival-tag {
+      border-color: #d8c9b3;
+      color: #efe3d2;
+      background: #2c3036;
+    }
+    body.dark-theme .arrival-chip {
+      border-color: #4a5059;
+      background: #2d3239;
+      color: #dbcdb7;
     }
     body.dark-theme .add-to-cart {
       background: linear-gradient(135deg, #d8cdbb, #f0e6d8);
@@ -1849,39 +1996,42 @@
   </div>
 </section>
 
-<section class="about-section" id="about" aria-label="About Bottega Atelier">
-  <div class="about-card">
-    <div class="about-main">
-      <span class="about-kicker"><i class="fas fa-gem" aria-hidden="true"></i> About Bottega</span>
-      <h2 class="about-title">Luxury staples built for modern icons.</h2>
-      <p class="about-description">
-        Bottega Atelier is a curated fashion destination focused on statement clothing and rare sneakers for people who lead with confidence.
-        We choose every piece for design impact, premium finish, and everyday wearability so your wardrobe always looks intentional.
-      </p>
-      <div class="about-highlights">
-        <div class="about-point"><i class="fas fa-check-circle" aria-hidden="true"></i> Handpicked collections with premium quality focus</div>
-        <div class="about-point"><i class="fas fa-check-circle" aria-hidden="true"></i> Fast support through direct WhatsApp assistance</div>
-        <div class="about-point"><i class="fas fa-check-circle" aria-hidden="true"></i> Smooth quotations, secure checkout, and trusted delivery</div>
-      </div>
-      <div class="about-graphics" aria-hidden="true">
-        <span class="about-badge"><i class="fas fa-layer-group"></i> Curated Layers</span>
-        <span class="about-badge"><i class="fas fa-shield-alt"></i> Trusted Quality</span>
-        <span class="about-orb"></span>
-        <span class="about-orb alt"></span>
-      </div>
+<section class="new-arrival-section" aria-label="New Arrival">
+  <div class="new-arrival-shell">
+    <div class="new-arrival-header">
+      <h2 class="new-arrival-title">New Arrival</h2>
+      <span class="new-arrival-tag">Gen X Vibe</span>
     </div>
-    <div class="about-pillars">
-      <article class="about-pillar">
-        <h3>Our Vision</h3>
-        <p>Elevate local fashion culture through globally inspired pieces and timeless street-luxury styling.</p>
+    <div class="new-arrival-grid">
+      <article class="arrival-card">
+        <div class="arrival-gallery">
+          <img src="assets/brown-suede-derby-1.png" alt="Brown Suede Derby shoe front and profile view" loading="lazy">
+          <img src="assets/brown-suede-derby-2.png" alt="Brown Suede Derby in dark brown tone" loading="lazy">
+          <img src="assets/brown-suede-derby-3.png" alt="Brown Suede Derby pair angled view" loading="lazy">
+          <img class="cold-variant" src="assets/brown-suede-derby-1.png" alt="Brown Suede Derby cool-toned edited variation" loading="lazy">
+        </div>
+        <div class="arrival-info">
+          <h3 class="arrival-name">Brown Suede Derby Shoes Thick-Soled Lace-Up Casual Men's Leather Dress Shoes</h3>
+          <div class="arrival-meta">
+            <span class="arrival-price">R4 000.00</span>
+            <span class="arrival-chip">Shoes</span>
+          </div>
+        </div>
       </article>
-      <article class="about-pillar">
-        <h3>Our Promise</h3>
-        <p>Every order receives detail-focused care from selection to packaging, so you receive exactly what you expect.</p>
-      </article>
-      <article class="about-pillar">
-        <h3>Our Experience</h3>
-        <p>Clean browsing, rich product galleries, and personal support designed to make premium shopping effortless.</p>
+      <article class="arrival-card">
+        <div class="arrival-gallery">
+          <img src="assets/brown-shearling-jacket-1.png" alt="Brown Winter Shearling Jacket front view" loading="lazy">
+          <img src="assets/brown-shearling-jacket-2.png" alt="Brown Winter Shearling Jacket back view" loading="lazy">
+          <img src="assets/brown-shearling-jacket-3.png" alt="Brown Winter Shearling Jacket angled side view" loading="lazy">
+          <img src="assets/brown-shearling-jacket-4.png" alt="Brown Winter Shearling Jacket studio front view" loading="lazy">
+        </div>
+        <div class="arrival-info">
+          <h3 class="arrival-name">Brown Winter Shearling Jacket Men Retro Vintage Style Genuine Natural Thick Sheepskin Turn-Down Collar Warm Coat</h3>
+          <div class="arrival-meta">
+            <span class="arrival-price">R11 000.00</span>
+            <span class="arrival-chip">Clothing</span>
+          </div>
+        </div>
       </article>
     </div>
   </div>
@@ -1925,20 +2075,6 @@
   <div class="product-grid" id="productGrid" aria-live="polite"></div>
 </section>
 
-<section class="utility-section" aria-label="Recently viewed products">
-  <h2 class="utility-title">Recently Viewed</h2>
-  <div id="recentlyViewedGrid" class="utility-grid">
-    <article class="utility-card"><h3>Nothing yet</h3><p>Open product images to build your recently viewed list.</p></article>
-  </div>
-</section>
-
-<section class="utility-section" aria-label="Recommended products">
-  <h2 class="utility-title">Recommended For You</h2>
-  <div id="relatedProductsGrid" class="utility-grid">
-    <article class="utility-card"><h3>Recommendations</h3><p>We’ll suggest products as you browse and add items to cart.</p></article>
-  </div>
-</section>
-
 <section class="watch-feature-section" aria-label="Featured Watch">
   <div class="watch-feature-card">
     <div class="watch-feature-media">
@@ -1950,6 +2086,44 @@
     <button class="add-to-cart watch-add-btn" id="watchAddBtn" type="button">
       <i class="fas fa-cart-plus"></i> Add Watch to cart
     </button>
+  </div>
+</section>
+
+<section class="about-section" id="about" aria-label="About Bottega Atelier">
+  <div class="about-card">
+    <div class="about-main">
+      <span class="about-kicker"><i class="fas fa-gem" aria-hidden="true"></i> About Bottega</span>
+      <h2 class="about-title">Luxury staples built for modern icons.</h2>
+      <p class="about-description">
+        Bottega Atelier is a curated fashion destination focused on statement clothing and rare sneakers for people who lead with confidence.
+        We choose every piece for design impact, premium finish, and everyday wearability so your wardrobe always looks intentional.
+      </p>
+      <div class="about-highlights">
+        <div class="about-point"><i class="fas fa-check-circle" aria-hidden="true"></i> Handpicked collections with premium quality focus</div>
+        <div class="about-point"><i class="fas fa-check-circle" aria-hidden="true"></i> Fast support through direct WhatsApp assistance</div>
+        <div class="about-point"><i class="fas fa-check-circle" aria-hidden="true"></i> Smooth quotations, secure checkout, and trusted delivery</div>
+      </div>
+      <div class="about-graphics" aria-hidden="true">
+        <span class="about-badge"><i class="fas fa-layer-group"></i> Curated Layers</span>
+        <span class="about-badge"><i class="fas fa-shield-alt"></i> Trusted Quality</span>
+        <span class="about-orb"></span>
+        <span class="about-orb alt"></span>
+      </div>
+    </div>
+    <div class="about-pillars">
+      <article class="about-pillar">
+        <h3>Our Vision</h3>
+        <p>Elevate local fashion culture through globally inspired pieces and timeless street-luxury styling.</p>
+      </article>
+      <article class="about-pillar">
+        <h3>Our Promise</h3>
+        <p>Every order receives detail-focused care from selection to packaging, so you receive exactly what you expect.</p>
+      </article>
+      <article class="about-pillar">
+        <h3>Our Experience</h3>
+        <p>Clean browsing, rich product galleries, and personal support designed to make premium shopping effortless.</p>
+      </article>
+    </div>
   </div>
 </section>
 
