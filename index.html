@@ -1970,7 +1970,7 @@
     .festive-layer {
       position: fixed;
       inset: 0;
-      z-index: 90;
+      z-index: 120;
       pointer-events: none;
       overflow: hidden;
     }
@@ -1984,9 +1984,9 @@
       mix-blend-mode: plus-lighter;
     }
     body:not(.dark-theme) .festive-fireworks {
-      mix-blend-mode: screen;
-      opacity: 0.88;
-      filter: saturate(1.15) contrast(1.08);
+      mix-blend-mode: plus-lighter;
+      opacity: 0.95;
+      filter: saturate(1.35) contrast(1.2) brightness(1.05);
     }
     .festive-snow {
       position: absolute;
@@ -2015,8 +2015,8 @@
     .festive-tree {
       position: fixed;
       bottom: -12px;
-      width: min(260px, 32vw);
-      z-index: 95;
+      width: min(280px, 34vw);
+      z-index: 130;
       filter:
         drop-shadow(0 22px 34px rgba(0, 0, 0, 0.42))
         drop-shadow(0 0 18px rgba(255, 214, 120, 0.18));
@@ -2063,7 +2063,7 @@
       right: 0;
       top: 0;
       height: 18px;
-      z-index: 101;
+      z-index: 140;
       pointer-events: none;
       background:
         radial-gradient(circle at 8% 40%, #ffd27a 0 3px, transparent 4px),
@@ -2089,7 +2089,7 @@
 
     .festive-banner {
       position: relative;
-      z-index: 96;
+      z-index: 125;
       margin: 0.85rem 2rem 0;
       padding: 0.7rem 1.25rem;
       border-radius: 999px;
@@ -4118,7 +4118,7 @@
     initAbandonedCartReminder();
     initFestiveSeason();
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('sw.js').catch((error) => {
+      navigator.serviceWorker.register('sw.js?v=festive-3').catch((error) => {
         console.warn('Service worker registration failed.', error);
       });
     }
