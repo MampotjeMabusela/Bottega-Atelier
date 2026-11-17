@@ -1,4 +1,4 @@
-const CACHE_NAME = 'bottega-cache-v3-festive';
+const CACHE_NAME = 'bottega-cache-v4-atelier';
 const ASSETS = [
   './',
   './index.html',
